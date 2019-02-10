@@ -17,8 +17,6 @@ public class CarDrive : MonoBehaviour {
 
     public Transform restartAt;
 
-    public DemoFunctionCallOnMe spacebarWillCallFunctionOn;
-
     [SerializeField]private Rigidbody rb;
 
 	// Use this for initialization
