@@ -40860,6 +40860,151 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1181854771669703201, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: restartAt
+      value: 
+      objectReference: {fileID: 1638498174}
+    - target: {fileID: 5174143390046855932, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174143390046855932, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174143390046855932, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174143390046855932, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174143390046855932, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174143390046855932, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174143390046855932, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.targetPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588832886910539537, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588832886910539537, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588832886910539537, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588832886910539537, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588832886910539537, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588832886910539537, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588832886910539537, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.targetPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575383111797235543, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575383111797235543, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575383111797235543, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575383111797235543, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575383111797235543, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575383111797235543, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575383111797235543, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.targetPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485150883357267362, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485150883357267362, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485150883357267362, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485150883357267362, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485150883357267362, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485150883357267362, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485150883357267362, guid: 7b8588f91f5c30b408650bc27d8d05e4,
+        type: 3}
+      propertyPath: m_SuspensionSpring.targetPosition
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b8588f91f5c30b408650bc27d8d05e4, type: 3}
 --- !u!1 &1472640940
@@ -46492,7 +46637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638498173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19, y: 3.518, z: -81.8}
+  m_LocalPosition: {x: 0.19, y: 5.69, z: -33.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
