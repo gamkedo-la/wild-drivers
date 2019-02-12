@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CarDrive : MonoBehaviour {
-    public float driveSpeed = 13.0f;
-    public float turnRate = 30.0f;
+    public float driveSpeed;
+    public float maxTurnRate;
+    private float turnRate;
     public float boost = 100.0f;
-    private float acceleration = 0.0f;
-    private float accelerationCap = 1.0f;
     public string currentPowerUp;
     public float powerUpTimer;
     public bool isWeaponActive = false;
@@ -16,6 +15,9 @@ public class CarDrive : MonoBehaviour {
     public GameObject bulletPrefab;
 
     public Transform restartAt;
+
+    public WheelCollider frontRightCollider, frontLeftCollider, backRightCollider, backLeftCollider;
+    public Transform frontRightTransform, frontLeftTransform, backRightTransform, backLeftTransform;
 
     [SerializeField]private Rigidbody rb;
 
@@ -44,14 +46,20 @@ public class CarDrive : MonoBehaviour {
         {
             RestartAtSpawn();
         }
+
         Accelerate();
+        Turn();
+        UpdateWheelPose(frontRightCollider, frontRightTransform);
+        UpdateWheelPose(frontLeftCollider, frontLeftTransform);
+        UpdateWheelPose(backRightCollider, backRightTransform);
+        UpdateWheelPose(backLeftCollider, backLeftTransform);
 
         //Debug.Log(Input.GetAxisRaw("Vertical"));
-        
-        transform.position += transform.forward * Time.deltaTime * driveSpeed * acceleration;
 
-        transform.Rotate(Vector3.up, turnRate * Time.deltaTime *
-                         Input.GetAxisRaw("Horizontal") * acceleration);
+        //transform.position += transform.forward * Time.deltaTime * driveSpeed * acceleration;
+
+        //transform.Rotate(Vector3.up, turnRate * Time.deltaTime *
+                         //Input.GetAxisRaw("Horizontal") * acceleration);
 
         if (powerUpTimer > 0)
         {
@@ -59,7 +67,6 @@ public class CarDrive : MonoBehaviour {
             {
 
                 case "speedBoost":
-                    accelerationCap = 1.3f;
                     break;
             }
 
@@ -94,35 +101,36 @@ public class CarDrive : MonoBehaviour {
                     isWeaponActive = true;
                     break;
                 case "SpeedPowerUp":
-                    acceleration += 0.3f;
+                    driveSpeed += 0.3f;
                     break;
             }
             powerUpTimer = 5;
             Destroy(other.gameObject);
         }
     }
+
     public void Accelerate()
     {
-        if (Input.GetAxisRaw("Vertical") != 0)
-        {
-            if (acceleration < accelerationCap && acceleration > -accelerationCap)
-            {
-                acceleration += 0.01f * Input.GetAxisRaw("Vertical");
-            }
-        }
-        else
-        {
-            if (acceleration > 0)
-            {
-                acceleration -= 0.005f;
-            }
-            if (acceleration < 0)
-            {
-                acceleration += 0.005f;
-            }
-
-        }
+        frontLeftCollider.motorTorque = Input.GetAxis("Vertical") * driveSpeed;
+        frontRightCollider.motorTorque = Input.GetAxis("Vertical") * driveSpeed;
     }
+
+    private void Turn()
+    {
+        turnRate = maxTurnRate * Input.GetAxis("Horizontal");
+        frontRightCollider.steerAngle = turnRate;
+        frontLeftCollider.steerAngle = turnRate;
+    }
+
+    private void UpdateWheelPose(WheelCollider wheelCollider, Transform wheelTransform)
+    {
+        Vector3 position = wheelTransform.position;
+        Quaternion rotation = wheelTransform.rotation;
+        wheelCollider.GetWorldPose(out position, out rotation);
+        wheelTransform.position = position;
+        wheelTransform.rotation = rotation;
+    }
+
     public void Shoot(string weapon)
     {
         GameObject bullet = Instantiate(bulletPrefab,transform.position,transform.rotation);
