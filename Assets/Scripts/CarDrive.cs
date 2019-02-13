@@ -7,6 +7,9 @@ public class CarDrive : MonoBehaviour {
     public float maxTurnRate;
     private float turnRate;
     public float boost = 100.0f;
+    public float acceleration = 0.0f;
+    public float accelerationCap = 1.0f;
+    public float brakeForce = 50f;
     public string currentPowerUp;
     public float powerUpTimer;
     public bool isWeaponActive = false;
@@ -111,13 +114,49 @@ public class CarDrive : MonoBehaviour {
 
     public void Accelerate()
     {
-        frontLeftCollider.motorTorque = Input.GetAxis("Vertical") * driveSpeed;
-        frontRightCollider.motorTorque = Input.GetAxis("Vertical") * driveSpeed;
+        if (Input.GetAxisRaw("Vertical") != 0)
+        {
+            if (acceleration < accelerationCap && acceleration > -accelerationCap)
+            {
+                acceleration += 0.01f * Input.GetAxisRaw("Vertical");
+            }
+        }
+        else
+        {
+            if (acceleration > 0)
+            {
+                acceleration -= 0.005f;
+            }
+            if (acceleration < 0)
+            {
+                acceleration += 0.005f;
+            }
+
+        }
+        Debug.Log(frontLeftCollider.motorTorque);
+
+        if ((frontLeftCollider.motorTorque > 0 && Input.GetAxisRaw("Vertical") < 0) ||
+            (frontLeftCollider.motorTorque < 0 && Input.GetAxisRaw("Vertical") > 0))//braking
+        {
+            acceleration = 0;
+            frontLeftCollider.brakeTorque += brakeForce;
+            frontRightCollider.brakeTorque += brakeForce;
+        }
+        else
+        {
+            frontLeftCollider.brakeTorque = 0;
+            frontRightCollider.brakeTorque = 0;
+            if (frontLeftCollider.motorTorque < motorTorgueCap && frontLeftCollider.motorTorque > -motorTorgueCap)
+            {
+                frontLeftCollider.motorTorque = driveSpeed * acceleration;
+                frontRightCollider.motorTorque = driveSpeed * acceleration;
+            }
+        }
     }
 
     private void Turn()
     {
-        turnRate = maxTurnRate * Input.GetAxis("Horizontal");
+        turnRate = maxTurnRate * Input.GetAxisRaw("Horizontal");
         frontRightCollider.steerAngle = turnRate;
         frontLeftCollider.steerAngle = turnRate;
     }
