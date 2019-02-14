@@ -9,7 +9,7 @@ public class CarDrive : MonoBehaviour {
     public float boost = 100.0f;
     public float acceleration = 0.0f;
     public float accelerationCap = 1.0f;
-    public float brakeForce = 50f;
+    public float brakeForce = 10f;
     public string currentPowerUp;
     public float powerUpTimer;
     public bool isWeaponActive = false;
@@ -133,7 +133,7 @@ public class CarDrive : MonoBehaviour {
             }
 
         }
-        Debug.Log(frontLeftCollider.motorTorque);
+        //Debug.Log(frontLeftCollider.motorTorque);
 
         if ((frontLeftCollider.motorTorque > 0 && Input.GetAxisRaw("Vertical") < 0) ||
             (frontLeftCollider.motorTorque < 0 && Input.GetAxisRaw("Vertical") > 0))//braking
@@ -141,16 +141,31 @@ public class CarDrive : MonoBehaviour {
             acceleration = 0;
             frontLeftCollider.brakeTorque += brakeForce;
             frontRightCollider.brakeTorque += brakeForce;
+
+            if (frontLeftCollider.motorTorque > 0)// We are also decreasing the motor torque to the point where it is 0. When it is 0 we will get rid of the brake torque and player will drive backwards
+            {
+                frontLeftCollider.motorTorque -= brakeForce;
+                frontRightCollider.motorTorque -= brakeForce;
+            }
+            else if (frontLeftCollider.motorTorque == 0)
+            {
+                frontRightCollider.motorTorque = 0;
+            }
+            else
+            {
+                frontLeftCollider.motorTorque += brakeForce;
+                frontRightCollider.motorTorque += brakeForce;
+            }
+
+            //Debug.Log(frontLeftCollider.motorTorque);
+            //Debug.Log(frontLeftCollider.brakeTorque);
         }
         else
         {
             frontLeftCollider.brakeTorque = 0;
             frontRightCollider.brakeTorque = 0;
-            if (frontLeftCollider.motorTorque < motorTorgueCap && frontLeftCollider.motorTorque > -motorTorgueCap)
-            {
-                frontLeftCollider.motorTorque = driveSpeed * acceleration;
-                frontRightCollider.motorTorque = driveSpeed * acceleration;
-            }
+            frontLeftCollider.motorTorque = driveSpeed * acceleration;
+            frontRightCollider.motorTorque = driveSpeed * acceleration;
         }
     }
 
