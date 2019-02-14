@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CarDrive : MonoBehaviour {
+
+    public int playerNumber; //To determine which player is this script is on
+
     public float driveSpeed;
     public float maxTurnRate;
     private float turnRate;
@@ -23,10 +26,12 @@ public class CarDrive : MonoBehaviour {
     public Transform frontRightTransform, frontLeftTransform, backRightTransform, backLeftTransform;
 
     [SerializeField]private Rigidbody rb;
+    private float verticalInput;
+    private float horizontalInput;
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log("Car object named " + gameObject.name +" started script!");
+        //Debug.Log("Car object named " + gameObject.name +" started script!");
 
         rb = gameObject.GetComponent<Rigidbody>();
         if(rb == null) {
@@ -50,6 +55,7 @@ public class CarDrive : MonoBehaviour {
             RestartAtSpawn();
         }
 
+        setInputForPlayer();
         Accelerate();
         Turn();
         UpdateWheelPose(frontRightCollider, frontRightTransform);
@@ -57,12 +63,12 @@ public class CarDrive : MonoBehaviour {
         UpdateWheelPose(backRightCollider, backRightTransform);
         UpdateWheelPose(backLeftCollider, backLeftTransform);
 
-        //Debug.Log(Input.GetAxisRaw("Vertical"));
+        //Debug.Log(verticalInput);
 
         //transform.position += transform.forward * Time.deltaTime * driveSpeed * acceleration;
 
         //transform.Rotate(Vector3.up, turnRate * Time.deltaTime *
-                         //Input.GetAxisRaw("Horizontal") * acceleration);
+                         //horizontalInput * acceleration);
 
         if (powerUpTimer > 0)
         {
@@ -114,64 +120,12 @@ public class CarDrive : MonoBehaviour {
 
     public void Accelerate()
     {
-        if (Input.GetAxisRaw("Vertical") != 0)
-        {
-            if (acceleration < accelerationCap && acceleration > -accelerationCap)
-            {
-                acceleration += 0.01f * Input.GetAxisRaw("Vertical");
-            }
-        }
-        else
-        {
-            if (acceleration > 0)
-            {
-                acceleration -= 0.005f;
-            }
-            if (acceleration < 0)
-            {
-                acceleration += 0.005f;
-            }
-
-        }
-        //Debug.Log(frontLeftCollider.motorTorque);
-
-        if ((frontLeftCollider.motorTorque > 0 && Input.GetAxisRaw("Vertical") < 0) ||
-            (frontLeftCollider.motorTorque < 0 && Input.GetAxisRaw("Vertical") > 0))//braking
-        {
-            acceleration = 0;
-            frontLeftCollider.brakeTorque += brakeForce;
-            frontRightCollider.brakeTorque += brakeForce;
-
-            if (frontLeftCollider.motorTorque > 0)// We are also decreasing the motor torque to the point where it is 0. When it is 0 we will get rid of the brake torque and player will drive backwards
-            {
-                frontLeftCollider.motorTorque -= brakeForce;
-                frontRightCollider.motorTorque -= brakeForce;
-            }
-            else if (frontLeftCollider.motorTorque == 0)
-            {
-                frontRightCollider.motorTorque = 0;
-            }
-            else
-            {
-                frontLeftCollider.motorTorque += brakeForce;
-                frontRightCollider.motorTorque += brakeForce;
-            }
-
-            //Debug.Log(frontLeftCollider.motorTorque);
-            //Debug.Log(frontLeftCollider.brakeTorque);
-        }
-        else
-        {
-            frontLeftCollider.brakeTorque = 0;
-            frontRightCollider.brakeTorque = 0;
-            frontLeftCollider.motorTorque = driveSpeed * acceleration;
-            frontRightCollider.motorTorque = driveSpeed * acceleration;
-        }
-    }
+            frontLeftCollider.motorTorque = driveSpeed * verticalInput;
+            frontRightCollider.motorTorque = driveSpeed * verticalInput;    }
 
     private void Turn()
     {
-        turnRate = maxTurnRate * Input.GetAxisRaw("Horizontal");
+        turnRate = maxTurnRate * horizontalInput;
         frontRightCollider.steerAngle = turnRate;
         frontLeftCollider.steerAngle = turnRate;
     }
@@ -204,6 +158,27 @@ public class CarDrive : MonoBehaviour {
         bullet.GetComponent<MissileScript>().target = closestEnemy;
         bullet.GetComponent<MissileScript>().source = this.gameObject;
         missileCount -= 1;
+    }
+
+    public void setInputForPlayer()
+    {
+
+        if (playerNumber == 1)
+        {
+            verticalInput = Input.GetAxis("Vertical");
+            horizontalInput = Input.GetAxis("Horizontal");
+            Debug.Log(verticalInput);
+        }
+        else if (playerNumber == 2)
+        {
+            verticalInput = Input.GetAxis("Vertical2");
+            horizontalInput = Input.GetAxis("Horizontal2");
+            Debug.Log(verticalInput);
+        }
+        else
+        {
+            Debug.Log("Please set the playerNumber for object named" + gameObject.name);
+        }
     }
 
 } // end of class
