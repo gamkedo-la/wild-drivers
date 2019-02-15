@@ -39,6 +39,7 @@ public class CarDrive : MonoBehaviour {
         }
 
         RestartAtSpawn();
+        gameObject.GetComponent<Rigidbody>().centerOfMass = new Vector3(0.0f, -0.3f, 0.1f);
 	}
 
     public void RestartAtSpawn() {
@@ -121,7 +122,8 @@ public class CarDrive : MonoBehaviour {
     public void Accelerate()
     {
             frontLeftCollider.motorTorque = driveSpeed * verticalInput;
-            frontRightCollider.motorTorque = driveSpeed * verticalInput;    }
+            frontRightCollider.motorTorque = driveSpeed * verticalInput;
+    }
 
     private void Turn()
     {
