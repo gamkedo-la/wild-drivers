@@ -329,7 +329,7 @@ Rigidbody:
   m_GameObject: {fileID: 1181854771669703198}
   serializedVersion: 2
   m_Mass: 1000
-  m_Drag: 0.5
+  m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 1
-  driveSpeed: 1500
+  driveSpeed: 4500
   maxTurnRate: 50
   boost: 100
   acceleration: 0
