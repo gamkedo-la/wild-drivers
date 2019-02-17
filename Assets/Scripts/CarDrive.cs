@@ -100,7 +100,8 @@ public class CarDrive : MonoBehaviour {
     {
         Debug.Log("asdf");
         currentPowerUp = other.gameObject.tag;
-        if (other.transform.parent.gameObject.tag == "PowerUp")
+        if (other && other.transform && other.transform.parent && other.transform.parent.gameObject &&
+            other.transform.parent.gameObject.tag == "PowerUp") // can be undefined
         {
             switch (currentPowerUp)//One time thing to do on the first time power up is taken
             {
@@ -169,13 +170,13 @@ public class CarDrive : MonoBehaviour {
         {
             verticalInput = Input.GetAxis("Vertical");
             horizontalInput = Input.GetAxis("Horizontal");
-            Debug.Log(verticalInput);
+            //Debug.Log(verticalInput);
         }
         else if (playerNumber == 2)
         {
             verticalInput = Input.GetAxis("Vertical2");
             horizontalInput = Input.GetAxis("Horizontal2");
-            Debug.Log(verticalInput);
+            //Debug.Log(verticalInput);
         }
         else
         {
