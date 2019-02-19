@@ -1,24 +1,20 @@
 fileFormatVersion: 2
-guid: ac0205062c1675c4f9c14761961553c5
+guid: 04b649d0a19300d40b58b507eeb3d1a2
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: CINEMA_4D_Editor
-    100002: Plane
-    100004: //RootNode
-    100006: Road
-    100008: Spline
-    400000: CINEMA_4D_Editor
-    400002: Plane
-    400004: //RootNode
-    400006: Road
-    400008: Spline
-    2000000: CINEMA_4D_Editor
-    2100000: Mat
-    2300000: Plane
-    3300000: Plane
-    4300000: Plane
-  externalObjects: {}
+    100000: //RootNode
+    400000: //RootNode
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Road
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: f2f246c5ee1640041bf9fd766d54d40c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -52,6 +48,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -76,6 +73,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -90,7 +90,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
