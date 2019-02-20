@@ -9,6 +9,7 @@ TagManager:
   - SpeedPowerUp
   - HomingMissile
   - Enemy
+  - Pickup
   layers:
   - Default
   - TransparentFX
