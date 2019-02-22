@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    
 
+    public float thrust;
+    public Rigidbody rb;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        transform.Translate(12*Time.deltaTime,0,0, Space.World);
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+       rb.AddForce(transform.forward * -thrust);
+
     }
 }
