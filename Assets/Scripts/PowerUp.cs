@@ -41,7 +41,7 @@ public class PowerUp : MonoBehaviour
             Destroy(rockettoLaunch);
             rocketFired = Instantiate(rocketfiredPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
             rocketFired.GetComponent<Rigidbody>().velocity = rb.velocity * missilelag;
-
+            missileloaded = false;
 
         }
     }
