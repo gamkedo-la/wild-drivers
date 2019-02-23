@@ -12,6 +12,7 @@ public class PowerUp : MonoBehaviour
     private ParticleSystem smoke;
     private Rigidbody rb;
     private float missilelag = 0.75f;// scales initial velocity so that missile appears to have start up lag
+    private bool missileloaded = false;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class PowerUp : MonoBehaviour
         if (pickup.gameObject.CompareTag("Pickup"))
         {
             pickup.gameObject.SetActive(false);
-
+            missileloaded = true;
             rockettoLaunch = Instantiate(rocketPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
 
         } 
@@ -34,12 +35,13 @@ public class PowerUp : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && missileloaded)
         {
-            Debug.Log("fire missile");
+            
             Destroy(rockettoLaunch);
             rocketFired = Instantiate(rocketfiredPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
             rocketFired.GetComponent<Rigidbody>().velocity = rb.velocity * missilelag;
+
 
         }
     }

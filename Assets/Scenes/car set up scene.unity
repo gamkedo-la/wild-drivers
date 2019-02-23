@@ -28102,7 +28102,6 @@ MonoBehaviour:
   rocketfiredPrefab: {fileID: 1930315197, guid: 7fd19a44d3b157e44876aa5b78a353ec,
     type: 3}
   AttachPoint: {fileID: 1891769140}
-  thrust: 20
 --- !u!1 &926924184
 GameObject:
   m_ObjectHideFlags: 0

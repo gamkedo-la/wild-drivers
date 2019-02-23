@@ -6,6 +6,8 @@ public class Missile : MonoBehaviour
 {
 
     public float thrust;
+    public GameObject explosionPrefab;
+    private GameObject explosionParticles;
     private Rigidbody rb;
     public float radius = 5.0F;
     public float power = 10.0F;
@@ -13,6 +15,7 @@ public class Missile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
     }
 
     void FixedUpdate()
@@ -26,7 +29,7 @@ public class Missile : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
-            Debug.Log("explode missile");
+            
             Vector3 explosionPos = transform.position;
             Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
             foreach (Collider hit in colliders)
@@ -35,8 +38,9 @@ public class Missile : MonoBehaviour
 
                 if (rb != null)
                     rb.AddExplosionForce(power, explosionPos, radius, 10.0F);
+                explosionParticles = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
                 Destroy(gameObject);
-
+                
             }
         }
     }

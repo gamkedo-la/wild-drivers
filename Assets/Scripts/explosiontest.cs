@@ -23,7 +23,6 @@ public class explosiontest : MonoBehaviour
                 if (rb != null)
                     rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
                
-
             }
         }
     }
