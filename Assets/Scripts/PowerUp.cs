@@ -10,6 +10,15 @@ public class PowerUp : MonoBehaviour
     private GameObject rockettoLaunch;
     private GameObject rocketFired;
     private ParticleSystem smoke;
+    private Rigidbody rb;
+    private float missilelag = 0.75f;// scales initial velocity so that missile appears to have start up lag
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+
+    }
+
 
     void OnTriggerEnter(Collider pickup)
     {
@@ -18,9 +27,7 @@ public class PowerUp : MonoBehaviour
             pickup.gameObject.SetActive(false);
 
             rockettoLaunch = Instantiate(rocketPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
-            // rocketPrefab.GetComponentInChildren<ParticleSystem>().enableEmission = false;
-           // rockettoLaunch.gameObject.SetActive(true);// why is this needed? check has prefab got set to off in error?
-            //rockettoLaunch.GetComponentInChildren<ParticleSystem>();
+
         } 
     }
 
@@ -29,11 +36,11 @@ public class PowerUp : MonoBehaviour
         
         if (Input.GetButtonDown("Fire1"))
         {
-            //rocketPrefab.GetComponentInChildren<ParticleSystem>().enableEmission = true;
             Debug.Log("fire missile");
-            rockettoLaunch.gameObject.SetActive(false);
-            //rockettoLaunch.transform.Translate(0, 0, -12 * Time.deltaTime);
-            rockettoLaunch = Instantiate(rocketfiredPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
+            Destroy(rockettoLaunch);
+            rocketFired = Instantiate(rocketfiredPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
+            rocketFired.GetComponent<Rigidbody>().velocity = rb.velocity * missilelag;
+
         }
     }
 
