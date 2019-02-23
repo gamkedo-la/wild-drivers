@@ -43719,8 +43719,10 @@ GameObject:
   - component: {fileID: 1601497973}
   - component: {fileID: 1601497972}
   - component: {fileID: 1601497971}
+  - component: {fileID: 228737604891294630}
+  - component: {fileID: 1818830454}
   m_Layer: 0
-  m_Name: Player 2 1
+  m_Name: Racing Car 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43742,6 +43744,7 @@ Transform:
   - {fileID: 2145444819}
   - {fileID: 1124252733}
   - {fileID: 593066753}
+  - {fileID: 1552248208145021017}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43810,6 +43813,38 @@ MonoBehaviour:
   backRightTransform: {fileID: 1118180033}
   backLeftTransform: {fileID: 1807796800}
   rb: {fileID: 0}
+--- !u!114 &228737604891294630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601497970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e9dbbdc7a6c1243b969b42fbd7b675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocketPrefab: {fileID: 1368926091190738351, guid: 452ff323d856b1142a2769f0db4f4ece,
+    type: 3}
+  rocketfiredPrefab: {fileID: 1930315197, guid: 7fd19a44d3b157e44876aa5b78a353ec,
+    type: 3}
+  AttachPoint: {fileID: 1552248208145021017}
+  currentPowerUp: 
+--- !u!114 &1818830454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601497970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6595327cf7633ce488f74cbee549a60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes: []
+  nextNode: 0
 --- !u!1 &1807796799
 GameObject:
   m_ObjectHideFlags: 0
@@ -58280,6 +58315,7 @@ GameObject:
   - component: {fileID: 2019810105}
   - component: {fileID: 2019810107}
   - component: {fileID: 2019810106}
+  - component: {fileID: 1241432716}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -58351,6 +58387,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019810104}
   m_Enabled: 1
+--- !u!114 &1241432716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019810104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf54f8daf69912c4690c1b0ee75d6ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2145444818
 GameObject:
   m_ObjectHideFlags: 0
@@ -58385,3 +58433,33 @@ Transform:
   m_Father: {fileID: 1601497974}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3833118525570914374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1552248208145021017}
+  m_Layer: 0
+  m_Name: Pickup Attach Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1552248208145021017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833118525570914374}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.03336048, y: 1.65, z: 0.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1601497974}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}

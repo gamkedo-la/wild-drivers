@@ -11,6 +11,8 @@ public class Missile : MonoBehaviour
     private Rigidbody rb;
     public float radius = 5.0F;
     public float power = 10.0F;
+    public int playerNumber;
+    private bool explodeInput;
 
     void Start()
     {
@@ -20,6 +22,14 @@ public class Missile : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (playerNumber == 1)
+        {
+            explodeInput = Input.GetButtonDown("Fire2");
+        }
+        else if (playerNumber == 2)
+        {
+            explodeInput = Input.GetKeyDown(KeyCode.T);
+        }
         rb.AddForce(transform.forward * -thrust);
         //rb.AddForce(transform.forward * -thrust, ForceMode.Impulse);
     }
@@ -27,7 +37,7 @@ public class Missile : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire2"))
+        if (explodeInput)
         {
             
             Vector3 explosionPos = transform.position;

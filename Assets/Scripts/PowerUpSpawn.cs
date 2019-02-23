@@ -20,7 +20,7 @@ public class PowerUpSpawn : MonoBehaviour
         {
             GameObject currentGameobject = GameObject.Instantiate(powerUps[Random.Range(0, powerUps.Count)], transform);
             currentGameobject.SetActive(true);
-            currentGameobject.transform.localPosition = new Vector3(i * 5, 0, 0);
+            currentGameobject.transform.localPosition = new Vector3(i * 3, 0, 0);
         }
 
     }

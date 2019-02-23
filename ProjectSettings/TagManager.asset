@@ -10,6 +10,8 @@ TagManager:
   - HomingMissile
   - Enemy
   - Pickup
+  - ToonMissile
+  - PowerUpZone
   layers:
   - Default
   - TransparentFX
