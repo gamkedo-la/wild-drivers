@@ -14,11 +14,6 @@ public class CarDrive : MonoBehaviour {
     public float accelerationCap = 1.0f;
     public float brakeForce = 10f;
     public string currentPowerUp;
-    public float powerUpTimer;
-    public bool isWeaponActive = false;
-    public string currentWeapon;
-    public int missileCount = 0;
-    public GameObject bulletPrefab;
 
     public Transform restartAt;
 

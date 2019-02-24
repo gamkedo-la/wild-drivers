@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 279448265721725215}
   - component: {fileID: 279448265721725217}
   - component: {fileID: 926544018}
+  - component: {fileID: 87692235}
   m_Layer: 0
   m_Name: Racing Car 1
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,12 +120,6 @@ MonoBehaviour:
   accelerationCap: 1
   brakeForce: 50
   currentPowerUp: 
-  powerUpTimer: 0
-  isWeaponActive: 0
-  currentWeapon: 
-  missileCount: 0
-  bulletPrefab: {fileID: 1600800133853954, guid: c0ed029767708fb41a2bf6a8396890de,
-    type: 3}
   restartAt: {fileID: 0}
   frontRightCollider: {fileID: 1406818603255361297}
   frontLeftCollider: {fileID: 1406818602971981127}
@@ -151,8 +146,24 @@ MonoBehaviour:
     type: 3}
   rocketfiredPrefab: {fileID: 1930315197, guid: 7fd19a44d3b157e44876aa5b78a353ec,
     type: 3}
+  homingMissilePrefab: {fileID: 1600800133853954, guid: c0ed029767708fb41a2bf6a8396890de,
+    type: 3}
   AttachPoint: {fileID: 1891769140}
   currentPowerUp: 
+--- !u!114 &87692235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279448265721725214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6595327cf7633ce488f74cbee549a60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes: []
+  nextNode: 0
 --- !u!1 &1406818602138793712
 GameObject:
   m_ObjectHideFlags: 0
@@ -58330,6 +58341,7 @@ GameObject:
   - component: {fileID: 4637866242434521404}
   - component: {fileID: 7074692439524961171}
   - component: {fileID: 7205443298299403713}
+  - component: {fileID: 1082537487}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -58401,6 +58413,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4686882156102360227}
   m_Enabled: 1
+--- !u!114 &1082537487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686882156102360227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf54f8daf69912c4690c1b0ee75d6ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8590968616300394295
 GameObject:
   m_ObjectHideFlags: 0

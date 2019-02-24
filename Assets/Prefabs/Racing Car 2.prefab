@@ -43723,7 +43723,7 @@ GameObject:
   - component: {fileID: 1818830454}
   m_Layer: 0
   m_Name: Racing Car 2
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43797,12 +43797,6 @@ MonoBehaviour:
   accelerationCap: 1
   brakeForce: 50
   currentPowerUp: 
-  powerUpTimer: 0
-  isWeaponActive: 0
-  currentWeapon: 
-  missileCount: 0
-  bulletPrefab: {fileID: 1600800133853954, guid: c0ed029767708fb41a2bf6a8396890de,
-    type: 3}
   restartAt: {fileID: 0}
   frontRightCollider: {fileID: 1180827051}
   frontLeftCollider: {fileID: 714370792}
@@ -43828,6 +43822,8 @@ MonoBehaviour:
   rocketPrefab: {fileID: 1368926091190738351, guid: 452ff323d856b1142a2769f0db4f4ece,
     type: 3}
   rocketfiredPrefab: {fileID: 1930315197, guid: 7fd19a44d3b157e44876aa5b78a353ec,
+    type: 3}
+  homingMissilePrefab: {fileID: 1600800133853954, guid: c0ed029767708fb41a2bf6a8396890de,
     type: 3}
   AttachPoint: {fileID: 1552248208145021017}
   currentPowerUp: 
@@ -58316,6 +58312,7 @@ GameObject:
   - component: {fileID: 2019810107}
   - component: {fileID: 2019810106}
   - component: {fileID: 1241432716}
+  - component: {fileID: 8864117297434828604}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -58388,6 +58385,18 @@ AudioListener:
   m_GameObject: {fileID: 2019810104}
   m_Enabled: 1
 --- !u!114 &1241432716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019810104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf54f8daf69912c4690c1b0ee75d6ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8864117297434828604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

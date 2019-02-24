@@ -6,6 +6,7 @@ public class PowerUp : MonoBehaviour
 {
     public GameObject rocketPrefab;
     public GameObject rocketfiredPrefab;
+    public GameObject homingMissilePrefab;
     public Transform AttachPoint;
     private GameObject rockettoLaunch;
     private GameObject rocketFired;
@@ -31,10 +32,10 @@ public class PowerUp : MonoBehaviour
 
     void OnTriggerEnter(Collider pickup)
     {
-        currentPowerUp = pickup.gameObject.tag;
         if (pickup && pickup.transform && pickup.transform.parent && pickup.transform.parent.gameObject &&
-            pickup.transform.parent.gameObject.tag == "PowerUpZone") // can be undefined
+            pickup.transform.parent.gameObject.tag == "PowerUpZone" && !isPowerUpReadyToLaunch) // can be undefined
         {
+            currentPowerUp = pickup.gameObject.tag;
             Debug.Log("picked up something");
             switch (currentPowerUp)//One time thing to do on the first time power up is taken
             {
@@ -47,8 +48,8 @@ public class PowerUp : MonoBehaviour
                     pickup.gameObject.SetActive(false);
                     break;
                 case "ToonMissile":
-                    pickup.gameObject.SetActive(false);
                     isPowerUpReadyToLaunch = true;
+                    pickup.gameObject.SetActive(false);
                     rockettoLaunch = Instantiate(rocketPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
                     break;
             }
@@ -64,8 +65,7 @@ public class PowerUp : MonoBehaviour
             switch (currentPowerUpEffect)//things to do until power up ends"
             {
 
-                case "speedBoost":
-                    gameObject.GetComponent<CarDrive>().driveSpeed *= 3;
+                case "SpeedPowerUp":
                     break;
             }
 
@@ -76,7 +76,7 @@ public class PowerUp : MonoBehaviour
             switch (currentPowerUpEffect)//things to do until power up ends"
             {
 
-                case "speedBoost":
+                case "SpeedPowerUp":
                     gameObject.GetComponent<CarDrive>().driveSpeed /= 3;
                     break;
             }
@@ -90,20 +90,25 @@ public class PowerUp : MonoBehaviour
         {
             switch (currentPowerUp)
             {
+                case "HomingMissile":
+                    GameObject bullet = Instantiate(homingMissilePrefab, transform.position, transform.rotation);
+                    GameObject enemy = (gameObject.GetComponent<CarDrive>().playerNumber == 1) ? GameObject.FindGameObjectWithTag("Player2") : GameObject.FindGameObjectWithTag("Player1");
+                    bullet.GetComponent<MissileScript>().target = enemy;
+                    bullet.GetComponent<MissileScript>().source = this.gameObject;
+                    break;
                 case "ToonMissile":
                     Destroy(rockettoLaunch);
                     rocketFired = Instantiate(rocketfiredPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
                     rocketFired.GetComponent<Rigidbody>().velocity = rb.velocity * missilelag;
                     rocketFired.GetComponent<Missile>().playerNumber = gameObject.GetComponent<CarDrive>().playerNumber;
-                    isPowerUpReadyToLaunch = false;
                     break;
                 case "SpeedPowerUp":
                     powerUpEffectTimer = 5;
+                    gameObject.GetComponent<CarDrive>().driveSpeed *= 5;
                     currentPowerUpEffect = currentPowerUp;
-                    isPowerUpReadyToLaunch = false;
-
                     break;
             }
+            isPowerUpReadyToLaunch = false;
             currentPowerUp = null;
         }
     }
