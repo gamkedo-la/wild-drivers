@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 1
-  driveSpeed: 3000
+  driveSpeed: 1500
   maxTurnRate: 25
   boost: 100
   acceleration: 0

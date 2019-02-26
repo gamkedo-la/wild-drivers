@@ -28,10 +28,12 @@ public class CarRotationFix : MonoBehaviour
     void Update()
     {
         float distanceBetweenPlayerandNode = Vector3.Distance(nodes[nextNode].transform.position, transform.position);
+
         if (distanceBetweenPlayerandNode < 15)
         {
-            changeNode();
+             changeNode();
         }
+
         //Debug.Log(rightRotationToFace.eulerAngles.y + " righttoface - transform    " + transform.rotation.eulerAngles.y + " playerNumber : " + playerNumber);
         float degreesToFailPlus = rightRotationToFace.eulerAngles.y + degreesToFail;
         float degreesToFailMinus = rightRotationToFace.eulerAngles.y - degreesToFail;
