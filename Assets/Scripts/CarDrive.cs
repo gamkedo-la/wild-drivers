@@ -14,8 +14,6 @@ public class CarDrive : MonoBehaviour {
     public float accelerationCap = 1.0f;
     public float brakeForce = 10f;
     public string currentPowerUp;
-    public int currentLap = 1;
-    public int maxLap = 3;
 
     public Transform restartAt;
 
@@ -115,19 +113,4 @@ public class CarDrive : MonoBehaviour {
             Debug.Log("Please set the playerNumber for object named" + gameObject.name);
         }
     }
-    private void OnTriggerEnter(Collider finishLine)
-    {
-        if (finishLine.CompareTag("FinishLine"))
-        {
-            if (currentLap < maxLap)
-            {
-                currentLap += 1;
-            }
-            else if (currentLap == maxLap)
-            {
-                Debug.Log(gameObject.name + " has won the game");
-            }
-        }
-    }
-
 } // end of class
