@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarRotationFix : MonoBehaviour    
+public class CarNodeHandling : MonoBehaviour    
 {
     private int playerNumber;
     private Quaternion rightRotationToFace;
     private int degreesToFail = 90; // at which point it is considered to be facing wrong direction.
     [SerializeField]private List<GameObject> nodes;
     [SerializeField] private int nextNode;
-    private int currentNode;
+    [SerializeField]private int currentNode;
+    public int currentLap = 1;
+    public int maxLap = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,7 @@ public class CarRotationFix : MonoBehaviour
     {
         float distanceBetweenPlayerandNode = Vector3.Distance(nodes[nextNode].transform.position, transform.position);
 
-        if (distanceBetweenPlayerandNode < 15)
+        if (distanceBetweenPlayerandNode < 15 && nextNode != nodes.Count -1)
         {
              changeNode();
         }
@@ -57,18 +59,28 @@ public class CarRotationFix : MonoBehaviour
     }
     private void changeNode()
     {
-        if (nextNode == nodes.Count -1)
-        {
-            nextNode = 0;
-            currentNode = nodes.Count - 1;
-        }
-        else
-        {
-            currentNode = nextNode;
-            nextNode += 1;
-        }
+        currentNode = nextNode;
+        nextNode += 1;
         Vector3 relativePosBetweenNodes = nodes[nextNode].transform.position - nodes[currentNode].transform.position;
         rightRotationToFace = Quaternion.LookRotation(relativePosBetweenNodes);
         //Debug.Log(rightRotationToFace.y + 180);
+    }
+    private void OnTriggerEnter(Collider finishLine)
+    {
+        if (finishLine.CompareTag("FinishLine") && nextNode == nodes.Count -1)
+        {
+            currentNode = nodes.Count - 1;
+            nextNode = 0;
+            Vector3 relativePosBetweenNodes = nodes[nextNode].transform.position - nodes[currentNode].transform.position;
+            rightRotationToFace = Quaternion.LookRotation(relativePosBetweenNodes);
+            if (currentLap < maxLap)
+            {
+                currentLap += 1;
+            }
+            else if (currentLap == maxLap)
+            {
+                Debug.Log(gameObject.name + " has won the game");
+            }
+        }
     }
 }
