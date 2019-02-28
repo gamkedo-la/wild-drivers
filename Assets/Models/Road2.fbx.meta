@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 04b649d0a19300d40b58b507eeb3d1a2
+guid: 68372d0a0ce280f488de49c7d89ce97f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,13 +8,8 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Road
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: f2f246c5ee1640041bf9fd766d54d40c, type: 2}
+    4300000: RoadOriginal3
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
