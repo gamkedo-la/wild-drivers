@@ -95,22 +95,30 @@ public class CarDrive : MonoBehaviour {
 
     public void setInputForPlayer()
     {
-
-        if (playerNumber == 1)
+        if (Time.timeScale != 0)
         {
-            verticalInput = Input.GetAxis("Vertical");
-            horizontalInput = Input.GetAxis("Horizontal");
-            //Debug.Log(verticalInput);
-        }
-        else if (playerNumber == 2)
-        {
-            verticalInput = Input.GetAxis("Vertical2");
-            horizontalInput = Input.GetAxis("Horizontal2");
-            //Debug.Log(verticalInput);
+            if (playerNumber == 1)
+            {
+                verticalInput = Input.GetAxis("Vertical");
+                horizontalInput = Input.GetAxis("Horizontal");
+                //Debug.Log(verticalInput);
+            }
+            else if (playerNumber == 2)
+            {
+                verticalInput = Input.GetAxis("Vertical2");
+                horizontalInput = Input.GetAxis("Horizontal2");
+                //Debug.Log(verticalInput);
+            }
+            else
+            {
+                Debug.Log("Please set the playerNumber for object named" + gameObject.name);
+            }
         }
         else
         {
-            Debug.Log("Please set the playerNumber for object named" + gameObject.name);
+            verticalInput = 0;
+            horizontalInput = 0;
         }
+
     }
 } // end of class

@@ -115,14 +115,18 @@ public class PowerUp : MonoBehaviour
 
     private void handleInput()
     {
-        if (gameObject.GetComponent<CarDrive>().playerNumber == 1)
+        if (Time.timeScale != 0f)
         {
-            fireInput = Input.GetButtonDown("Fire1");
+            if (gameObject.GetComponent<CarDrive>().playerNumber == 1)
+            {
+                fireInput = Input.GetButtonDown("Fire1");
+            }
+            else if (gameObject.GetComponent<CarDrive>().playerNumber == 2)
+            {
+                fireInput = Input.GetKeyDown(KeyCode.Space);
+            }
         }
-        else if (gameObject.GetComponent<CarDrive>().playerNumber == 2)
-        {
-            fireInput = Input.GetKeyDown(KeyCode.Space);
-        }
+
     }
 
 

@@ -22,14 +22,8 @@ public class Missile : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (playerNumber == 1)
-        {
-            explodeInput = Input.GetButtonDown("Fire2");
-        }
-        else if (playerNumber == 2)
-        {
-            explodeInput = Input.GetKeyDown(KeyCode.T);
-        }
+        handleInput();
+
         rb.AddForce(transform.forward * -thrust);
         //rb.AddForce(transform.forward * -thrust, ForceMode.Impulse);
     }
@@ -52,6 +46,22 @@ public class Missile : MonoBehaviour
                 Destroy(gameObject);
                 
             }
+        }
+    }
+    
+    private void handleInput()
+    {
+        if (playerNumber == 1 && Time.timeScale != 0f)
+        {
+            explodeInput = Input.GetButtonDown("Fire2");
+        }
+        else if (playerNumber == 2 && Time.timeScale != 0f)
+        {
+            explodeInput = Input.GetKeyDown(KeyCode.T);
+        }
+        else
+        {
+            explodeInput = false;
         }
     }
 }
