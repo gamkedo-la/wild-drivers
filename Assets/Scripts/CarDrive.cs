@@ -73,6 +73,11 @@ public class CarDrive : MonoBehaviour {
         frontRightCollider.motorTorque = driveSpeed * verticalInput;
         backLeftCollider.motorTorque = driveSpeed * verticalInput;
         backRightCollider.motorTorque = driveSpeed * verticalInput;
+
+        frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
+        frontRightCollider.ConfigureVehicleSubsteps(5, 12, 15);
+        backLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
+        backRightCollider.ConfigureVehicleSubsteps(5, 12, 15);
     }
 
     private void Turn()

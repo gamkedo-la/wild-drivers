@@ -22,12 +22,13 @@ public class CameraLock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Debug.Log(player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z);
-        currentVelocityZ = player.GetComponent<Rigidbody>().velocity.magnitude;
-        //currentVelocityX = player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).x;
+        //Debug.Log(cameraWorldPosition);
+        Debug.Log(player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z);
+        currentVelocityZ = player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z;
+        currentVelocityX = player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).x;
 
-        /*sliderX = currentVelocityX / 10;
-        if (sliderX > 1)
+        sliderX = Mathf.Lerp(sliderX, currentVelocityX, 0.02f);
+        /*if (sliderX > 1)
         {
             sliderX = 1;
         }
@@ -38,24 +39,25 @@ public class CameraLock : MonoBehaviour
 
         //Debug.Log(player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z);
 
-        sliderZ = currentVelocityZ / 25;
-        if (sliderZ > 1)
+        sliderZ = Mathf.Lerp(sliderZ, currentVelocityZ, 0.02f);
+        //Debug.Log(sliderZ);
+        /*if (sliderZ > 1)
         {
             sliderZ = 1;
         }
         if (sliderZ < 0)
         {
             sliderZ = 0;
-        }
+        }*/
         //Debug.Log(sliderZ);
-        transform.localPosition = new Vector3(startingX + (player.GetComponent<CarDrive>().horizontalInput * 2) , transform.localPosition.y, startingZ - (sliderZ * 4));
+        transform.localPosition = new Vector3(startingX - (sliderX * 2) , transform.localPosition.y, startingZ - (sliderZ/3));
     }
 
     void LateUpdate()
     {
 
         yVal = transform.rotation.eulerAngles.y;
-        dir = new Vector3(0f, yVal, 0f);
+        dir = new Vector3(0.0000f, yVal, 0.0000f);
         transform.rotation = Quaternion.Euler(dir);
     }
 }
