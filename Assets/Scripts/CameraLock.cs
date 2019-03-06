@@ -23,11 +23,11 @@ public class CameraLock : MonoBehaviour
     private void FixedUpdate()
     {
         //Debug.Log(cameraWorldPosition);
-        Debug.Log(player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z);
+        //Debug.Log(player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z);
         currentVelocityZ = player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z;
         currentVelocityX = player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).x;
 
-        sliderX = Mathf.Lerp(sliderX, currentVelocityX, 0.02f);
+        sliderX = Mathf.Lerp(sliderX, currentVelocityX/5, 0.02f);
         /*if (sliderX > 1)
         {
             sliderX = 1;
@@ -39,7 +39,7 @@ public class CameraLock : MonoBehaviour
 
         //Debug.Log(player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z);
 
-        sliderZ = Mathf.Lerp(sliderZ, currentVelocityZ, 0.02f);
+        sliderZ = Mathf.Lerp(sliderZ, currentVelocityZ/3, 0.02f);
         //Debug.Log(sliderZ);
         /*if (sliderZ > 1)
         {

@@ -33,6 +33,7 @@ public class CarDrive : MonoBehaviour {
             Debug.LogWarning("Car isn't set up right, no rigidbody found?");
         }
 
+        frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
         RestartAtSpawn();
         gameObject.GetComponent<Rigidbody>().centerOfMass = new Vector3(0.0f, -0.3f, 0.1f);
 	}
@@ -74,10 +75,10 @@ public class CarDrive : MonoBehaviour {
         backLeftCollider.motorTorque = driveSpeed * verticalInput;
         backRightCollider.motorTorque = driveSpeed * verticalInput;
 
-        frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
+        /*frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
         frontRightCollider.ConfigureVehicleSubsteps(5, 12, 15);
         backLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
-        backRightCollider.ConfigureVehicleSubsteps(5, 12, 15);
+        backRightCollider.ConfigureVehicleSubsteps(5, 12, 15);*/
     }
 
     private void Turn()
