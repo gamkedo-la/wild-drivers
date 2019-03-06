@@ -20,17 +20,13 @@ public class CameraLock : MonoBehaviour
         startingZ = transform.localPosition.z;
     }
 
-    void LateUpdate()
+    private void FixedUpdate()
     {
-        Debug.Log(player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z);
-        currentVelocityZ = player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z;
-        currentVelocityX = player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).x;
+        //Debug.Log(player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z);
+        currentVelocityZ = player.GetComponent<Rigidbody>().velocity.magnitude;
+        //currentVelocityX = player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).x;
 
-        yVal = transform.rotation.eulerAngles.y;
-		dir = new Vector3(0f, yVal, 0f);
-		transform.rotation = Quaternion.Euler(dir);
-
-        sliderX = currentVelocityX / 10;
+        /*sliderX = currentVelocityX / 10;
         if (sliderX > 1)
         {
             sliderX = 1;
@@ -38,7 +34,9 @@ public class CameraLock : MonoBehaviour
         if (sliderX < -1)
         {
             sliderX = -1;
-        }
+        }*/
+
+        //Debug.Log(player.transform.InverseTransformDirection(player.GetComponent<Rigidbody>().velocity).z);
 
         sliderZ = currentVelocityZ / 25;
         if (sliderZ > 1)
@@ -49,7 +47,15 @@ public class CameraLock : MonoBehaviour
         {
             sliderZ = 0;
         }
-        Debug.Log(sliderZ);
-        transform.localPosition = new Vector3(startingX - (sliderX * 6) , transform.localPosition.y, startingZ - (sliderZ * 4));
+        //Debug.Log(sliderZ);
+        transform.localPosition = new Vector3(startingX + (player.GetComponent<CarDrive>().horizontalInput * 2) , transform.localPosition.y, startingZ - (sliderZ * 4));
+    }
+
+    void LateUpdate()
+    {
+
+        yVal = transform.rotation.eulerAngles.y;
+        dir = new Vector3(0f, yVal, 0f);
+        transform.rotation = Quaternion.Euler(dir);
     }
 }

@@ -57,7 +57,7 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         handleInput();
         if (powerUpEffectTimer > 0)

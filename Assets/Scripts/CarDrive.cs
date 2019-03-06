@@ -21,8 +21,8 @@ public class CarDrive : MonoBehaviour {
     public Transform frontRightTransform, frontLeftTransform, backRightTransform, backLeftTransform;
 
     [SerializeField]private Rigidbody rb;
-    private float verticalInput;
-    private float horizontalInput;
+    public float verticalInput;
+    public float horizontalInput;
 
 	// Use this for initialization
 	void Start () {
@@ -45,7 +45,7 @@ public class CarDrive : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartAtSpawn();
@@ -64,17 +64,15 @@ public class CarDrive : MonoBehaviour {
         //transform.position += transform.forward * Time.deltaTime * driveSpeed * acceleration;
 
         //transform.Rotate(Vector3.up, turnRate * Time.deltaTime *
-                         //horizontalInput * acceleration);
-
     } // end of Update()
 
 
     public void Accelerate()
     {
-            frontLeftCollider.motorTorque = driveSpeed * verticalInput;
-            frontRightCollider.motorTorque = driveSpeed * verticalInput;
-            backLeftCollider.motorTorque = driveSpeed * verticalInput;
-            backRightCollider.motorTorque = driveSpeed * verticalInput;
+        frontLeftCollider.motorTorque = driveSpeed * verticalInput;
+        frontRightCollider.motorTorque = driveSpeed * verticalInput;
+        backLeftCollider.motorTorque = driveSpeed * verticalInput;
+        backRightCollider.motorTorque = driveSpeed * verticalInput;
     }
 
     private void Turn()
