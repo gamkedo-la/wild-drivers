@@ -24,8 +24,10 @@ public class CarDrive : MonoBehaviour {
     public float verticalInput;
     public float horizontalInput;
 
-	// Use this for initialization
-	void Start () {
+    public GameObject minimapIcon;// Is used for enabling minimapIcon gameobject when game starts.
+
+    // Use this for initialization
+    void Start () {
         //Debug.Log("Car object named " + gameObject.name +" started script!");
 
         rb = gameObject.GetComponent<Rigidbody>();
@@ -36,6 +38,7 @@ public class CarDrive : MonoBehaviour {
         frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
         RestartAtSpawn();
         gameObject.GetComponent<Rigidbody>().centerOfMass = new Vector3(0.0f, -0.3f, 0.1f);
+        minimapIcon.SetActive(true);
 	}
 
     public void RestartAtSpawn() {

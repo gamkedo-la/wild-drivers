@@ -16,6 +16,7 @@ TagManager:
   - Player2
   - FinishLine
   - Canvas
+  - MinimapIcon
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - Minimap
+  - Road
   - 
   - 
   - 
