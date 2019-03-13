@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
     private float restartTimer = 5;
     private float restartTimerLeft = 5; //counting down before restarting the game.
     private bool isPaused = true;// set to true to countdown at the start of the round.
-    private int playerNumber;
     private bool pauseInput;
-    public GameObject Countdown;
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerNumber = gameObject.GetComponent<CarDrive>().playerNumber;
-    }
+    public GameObject Player1countdown;
+    public GameObject Player2countdown;
+    public GameObject pauseMenucanvas;
 
     // Update is called once per frame
     void Update()
@@ -24,11 +21,13 @@ public class PauseController : MonoBehaviour
         {
             if (isPaused)
             {
+                pauseMenucanvas.SetActive(false);
                 isPaused = false;
                 restartTimerLeft = restartTimer;
             }
-            else
+            else if(restartTimerLeft <= 0)
             {
+                pauseMenucanvas.SetActive(true);
                 isPaused = true;
                 Time.timeScale = 0f;
             }
@@ -37,16 +36,31 @@ public class PauseController : MonoBehaviour
         if (restartTimerLeft > 0)
         {
             isPaused = false;
-            Countdown.SetActive(true);
+            Player1countdown.SetActive(true);
+            Player2countdown.SetActive(true);
             Time.timeScale = 0f;
             restartTimerLeft -= Time.unscaledDeltaTime;
-            Countdown.GetComponent<Text>().text = Mathf.Ceil(restartTimerLeft).ToString();
+            Player1countdown.GetComponent<Text>().text = Mathf.Ceil(restartTimerLeft).ToString();
+            Player2countdown.GetComponent<Text>().text = Mathf.Ceil(restartTimerLeft).ToString();
         }
         else if (!isPaused)
         {
             restartTimerLeft = 0;
             Time.timeScale = 1f;
-            Countdown.SetActive(false);
+            Player1countdown.SetActive(false);
+            Player2countdown.SetActive(false);
         }
+    }
+
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    
+    public void resumeGame()
+    {
+        pauseMenucanvas.SetActive(false);
+        isPaused = false;
+        restartTimerLeft = restartTimer;
     }
 }
