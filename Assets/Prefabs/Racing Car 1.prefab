@@ -456,7 +456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee17f42324c956742b6944b8262a2d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Countdown: {fileID: 623998195}
+  Player1countdown: {fileID: 0}
+  Player2countdown: {fileID: 0}
+  pauseMenucanvas: {fileID: 0}
 --- !u!1 &1406818602138793712
 GameObject:
   m_ObjectHideFlags: 0
