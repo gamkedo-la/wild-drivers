@@ -17,8 +17,8 @@ public class CarDrive : MonoBehaviour {
 
     public Transform restartAt;
 
-    public WheelCollider frontRightCollider, frontLeftCollider, backRightCollider, backLeftCollider;
-    public Transform frontRightTransform, frontLeftTransform, backRightTransform, backLeftTransform;
+    public WheelCollider frontRightCollider, frontLeftCollider, backRightCollider, backLeftCollider, bikeBackCollider, bikeFrontCollider;
+    public Transform frontRightTransform, frontLeftTransform, backRightTransform, backLeftTransform, bikeBackTransform, bikeFrontTransform;
 
     [SerializeField]private Rigidbody rb;
     public float verticalInput;
@@ -34,8 +34,14 @@ public class CarDrive : MonoBehaviour {
         if(rb == null) {
             Debug.LogWarning("Car isn't set up right, no rigidbody found?");
         }
-
-        frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
+        if (frontLeftCollider != null)
+        {
+            frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
+        }
+        if (backLeftCollider != null)
+        {
+            backLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
+        }
         RestartAtSpawn();
         gameObject.GetComponent<Rigidbody>().centerOfMass = new Vector3(0.0f, -0.3f, 0.1f);
 	}
@@ -54,13 +60,25 @@ public class CarDrive : MonoBehaviour {
             RestartAtSpawn();
         }
 
+        Debug.Log(gameObject.GetComponent<Rigidbody>().centerOfMass + gameObject.name);
+
         setInputForPlayer();
         Accelerate();
         Turn();
-        UpdateWheelPose(frontRightCollider, frontRightTransform);
-        UpdateWheelPose(frontLeftCollider, frontLeftTransform);
-        UpdateWheelPose(backRightCollider, backRightTransform);
-        UpdateWheelPose(backLeftCollider, backLeftTransform);
+
+        if (frontLeftCollider != null)
+        {
+            UpdateWheelPose(frontRightCollider, frontRightTransform);
+            UpdateWheelPose(frontLeftCollider, frontLeftTransform);
+            UpdateWheelPose(backRightCollider, backRightTransform);
+            UpdateWheelPose(backLeftCollider, backLeftTransform);
+        }
+
+        if (bikeBackCollider != null)
+        {
+            UpdateWheelPose(bikeBackCollider, bikeBackTransform);
+            UpdateWheelPose(bikeFrontCollider, bikeFrontTransform);
+        }
 
         //Debug.Log(verticalInput);
 
@@ -72,10 +90,19 @@ public class CarDrive : MonoBehaviour {
 
     public void Accelerate()
     {
-        frontLeftCollider.motorTorque = driveSpeed * verticalInput;
-        frontRightCollider.motorTorque = driveSpeed * verticalInput;
-        backLeftCollider.motorTorque = driveSpeed * verticalInput;
-        backRightCollider.motorTorque = driveSpeed * verticalInput;
+        if (frontLeftCollider != null)
+        {
+            frontLeftCollider.motorTorque = driveSpeed * verticalInput;
+            frontRightCollider.motorTorque = driveSpeed * verticalInput;
+            backLeftCollider.motorTorque = driveSpeed * verticalInput;
+            backRightCollider.motorTorque = driveSpeed * verticalInput;
+        }
+
+        if (bikeBackCollider != null)
+        {
+            bikeBackCollider.motorTorque = driveSpeed * verticalInput;
+            bikeFrontCollider.motorTorque = driveSpeed * verticalInput;
+        }
 
         /*frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
         frontRightCollider.ConfigureVehicleSubsteps(5, 12, 15);
@@ -86,17 +113,34 @@ public class CarDrive : MonoBehaviour {
     private void Turn()
     {
         turnRate = maxTurnRate * horizontalInput;
-        frontRightCollider.steerAngle = turnRate;
-        frontLeftCollider.steerAngle = turnRate;
+
+        if (frontLeftCollider != null)
+        {
+            frontRightCollider.steerAngle = turnRate;
+            frontLeftCollider.steerAngle = turnRate;
+        }
+
+        if (bikeBackCollider != null)
+        {
+            bikeFrontCollider.steerAngle = turnRate;
+        }
+
     }
 
     private void UpdateWheelPose(WheelCollider wheelCollider, Transform wheelTransform)
     {
-        Vector3 position = wheelTransform.position;
-        Quaternion rotation = wheelTransform.rotation;
-        wheelCollider.GetWorldPose(out position, out rotation);
-        wheelTransform.position = position;
-        wheelTransform.rotation = rotation;
+        if (bikeBackCollider != null)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -horizontalInput * 5);
+        }
+        else
+        {
+            Vector3 position = wheelTransform.position;
+            Quaternion rotation = wheelTransform.rotation;
+            wheelCollider.GetWorldPose(out position, out rotation);
+            wheelTransform.position = position;
+            wheelTransform.rotation = rotation;
+        }
     }
 
     public void setInputForPlayer()
