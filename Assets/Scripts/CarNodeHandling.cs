@@ -76,9 +76,13 @@ public class CarNodeHandling : MonoBehaviour
             if (currentLap < maxLap)
             {
                 currentLap += 1;
+                gameObject.GetComponent<PlayerUIHandler>().currentLap = currentLap;
+                gameObject.GetComponent<PlayerUIHandler>().LapUIHandling();//Changes Text in ui
             }
             else if (currentLap == maxLap)
             {
+                gameObject.GetComponent<PlayerUIHandler>().currentLap = currentLap;
+                gameObject.GetComponent<PlayerUIHandler>().LapUIHandling();//Changes Text in ui
                 Debug.Log(gameObject.name + " has won the game");
             }
         }
