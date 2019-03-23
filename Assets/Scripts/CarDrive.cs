@@ -66,14 +66,14 @@ public class CarDrive : MonoBehaviour {
 
         //Debug.Log(gameObject.GetComponent<Rigidbody>().centerOfMass + gameObject.name);
 
-        /*if (isBoostActive)
+        if (isBoostActive)
         {
             driveSpeed = startingDriveSpeed * 2;
         }
         else
         {
             driveSpeed = startingDriveSpeed;
-        }*/
+        }
 
         setInputForPlayer();
         Accelerate();
