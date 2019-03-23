@@ -77,7 +77,7 @@ public class PowerUp : MonoBehaviour
             {
 
                 case "SpeedPowerUp":
-                    gameObject.GetComponent<CarDrive>().driveSpeed /= 3;
+                    gameObject.GetComponent<CarDrive>().isBoostActive = false;
                     break;
             }
             currentPowerUpEffect = null;
@@ -104,7 +104,7 @@ public class PowerUp : MonoBehaviour
                     break;
                 case "SpeedPowerUp":
                     powerUpEffectTimer = 5;
-                    gameObject.GetComponent<CarDrive>().driveSpeed *= 5;
+                    gameObject.GetComponent<CarDrive>().isBoostActive = true;
                     currentPowerUpEffect = currentPowerUp;
                     break;
             }

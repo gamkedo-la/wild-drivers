@@ -6,6 +6,7 @@ public class CarDrive : MonoBehaviour {
 
     public int playerNumber; //To determine which player is this script is on
 
+    public float startingDriveSpeed;
     public float driveSpeed;
     public float maxTurnRate;
     private float turnRate;
@@ -14,6 +15,8 @@ public class CarDrive : MonoBehaviour {
     public float accelerationCap = 1.0f;
     public float brakeForce = 10f;
     public string currentPowerUp;
+    public bool isBoostActive;
+
 
     public Transform restartAt;
 
@@ -29,6 +32,7 @@ public class CarDrive : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //Debug.Log("Car object named " + gameObject.name +" started script!");
+        driveSpeed = startingDriveSpeed;
 
         rb = gameObject.GetComponent<Rigidbody>();
         if(rb == null) {
@@ -60,7 +64,16 @@ public class CarDrive : MonoBehaviour {
             RestartAtSpawn();
         }
 
-        Debug.Log(gameObject.GetComponent<Rigidbody>().centerOfMass + gameObject.name);
+        //Debug.Log(gameObject.GetComponent<Rigidbody>().centerOfMass + gameObject.name);
+
+        /*if (isBoostActive)
+        {
+            driveSpeed = startingDriveSpeed * 2;
+        }
+        else
+        {
+            driveSpeed = startingDriveSpeed;
+        }*/
 
         setInputForPlayer();
         Accelerate();
@@ -96,6 +109,13 @@ public class CarDrive : MonoBehaviour {
             frontRightCollider.motorTorque = driveSpeed * verticalInput;
             backLeftCollider.motorTorque = driveSpeed * verticalInput;
             backRightCollider.motorTorque = driveSpeed * verticalInput;
+            /*if (playerNumber == 1)
+            {
+                Debug.Log(frontLeftCollider.);
+                Debug.Log(frontRightCollider.forwardFriction);
+                Debug.Log(backLeftCollider.forwardFriction);
+                Debug.Log(backRightCollider.forwardFriction);
+            }*/
         }
 
         if (bikeBackCollider != null)
