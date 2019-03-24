@@ -17,6 +17,7 @@ TagManager:
   - FinishLine
   - Canvas
   - MinimapIcon
+  - WheelColliderParent
   layers:
   - Default
   - TransparentFX

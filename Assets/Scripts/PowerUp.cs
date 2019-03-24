@@ -62,10 +62,12 @@ public class PowerUp : MonoBehaviour
         handleInput();
         if (powerUpEffectTimer > 0)
         {
-            switch (currentPowerUpEffect)//things to do until power up ends"
+            switch (currentPowerUpEffect)//things to do until power up ends
             {
 
                 case "SpeedPowerUp":
+                    //Debug.Log(Vector3.forward * 200);
+                    //Debug.Log(gameObject.GetComponent<Rigidbody>().velocity.
                     break;
             }
 
@@ -73,11 +75,11 @@ public class PowerUp : MonoBehaviour
         }
         else if (powerUpEffectTimer < 0)
         {
-            switch (currentPowerUpEffect)//things to do until power up ends"
+            switch (currentPowerUpEffect)//things to do when power up ends
             {
 
                 case "SpeedPowerUp":
-                    gameObject.GetComponent<CarDrive>().isBoostActive = false;
+                    //gameObject.GetComponent<CarDrive>().isBoostActive = false;
                     break;
             }
             currentPowerUpEffect = null;
@@ -103,8 +105,9 @@ public class PowerUp : MonoBehaviour
                     rocketFired.GetComponent<Missile>().playerNumber = gameObject.GetComponent<CarDrive>().playerNumber;
                     break;
                 case "SpeedPowerUp":
-                    powerUpEffectTimer = 5;
-                    gameObject.GetComponent<CarDrive>().isBoostActive = true;
+                    //powerUpEffectTimer = 5;
+                    gameObject.GetComponent<Rigidbody>().velocity *= 1.3f;
+                    //gameObject.GetComponent<CarDrive>().isBoostActive = true;
                     currentPowerUpEffect = currentPowerUp;
                     break;
             }

@@ -23,6 +23,8 @@ public class CarDrive : MonoBehaviour {
     public WheelCollider frontRightCollider, frontLeftCollider, backRightCollider, backLeftCollider, bikeBackCollider, bikeFrontCollider;
     public Transform frontRightTransform, frontLeftTransform, backRightTransform, backLeftTransform, bikeBackTransform, bikeFrontTransform;
 
+    private Vector3 centerOfWheelColiiders;
+
     [SerializeField]private Rigidbody rb;
     public float verticalInput;
     public float horizontalInput;
@@ -47,14 +49,17 @@ public class CarDrive : MonoBehaviour {
             backLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
         }
         RestartAtSpawn();
-        gameObject.GetComponent<Rigidbody>().centerOfMass = new Vector3(0.0f, -0.3f, 0.1f);
+        centerOfWheelColiiders = (frontRightCollider.gameObject.transform.localPosition + frontLeftCollider.gameObject.transform.localPosition + backRightCollider.gameObject.transform.localPosition + backLeftCollider.gameObject.transform.localPosition) / 4;
+        gameObject.GetComponent<Rigidbody>().centerOfMass = centerOfWheelColiiders;
+        Debug.Log(gameObject.GetComponent<Rigidbody>().centerOfMass);
 	}
 
     public void RestartAtSpawn() {
         transform.position = restartAt.position;
         transform.rotation = restartAt.rotation;
 
-        rb.angularVelocity = Vector3.zero;
+        //rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
     }
 	
 	// Update is called once per frame
@@ -63,17 +68,19 @@ public class CarDrive : MonoBehaviour {
         {
             RestartAtSpawn();
         }
-
+        gameObject.GetComponent<Rigidbody>().centerOfMass = centerOfWheelColiiders;
+        //Debug.Log(rb.angularVelocity);
         //Debug.Log(gameObject.GetComponent<Rigidbody>().centerOfMass + gameObject.name);
 
-        if (isBoostActive)
+        /*if (isBoostActive)
         {
-            driveSpeed = startingDriveSpeed * 2;
+            //driveSpeed = startingDriveSpeed * 2;
+            rb.
         }
         else
         {
-            driveSpeed = startingDriveSpeed;
-        }
+            //driveSpeed = startingDriveSpeed;
+        }*/
 
         setInputForPlayer();
         Accelerate();
@@ -87,11 +94,11 @@ public class CarDrive : MonoBehaviour {
             UpdateWheelPose(backLeftCollider, backLeftTransform);
         }
 
-        if (bikeBackCollider != null)
+        /*if (bikeBackCollider != null)
         {
             UpdateWheelPose(bikeBackCollider, bikeBackTransform);
             UpdateWheelPose(bikeFrontCollider, bikeFrontTransform);
-        }
+        }*/
 
         //Debug.Log(verticalInput);
 
@@ -118,11 +125,11 @@ public class CarDrive : MonoBehaviour {
             }*/
         }
 
-        if (bikeBackCollider != null)
+        /*if (bikeBackCollider != null)
         {
             bikeBackCollider.motorTorque = driveSpeed * verticalInput;
             bikeFrontCollider.motorTorque = driveSpeed * verticalInput;
-        }
+        }*/
 
         /*frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
         frontRightCollider.ConfigureVehicleSubsteps(5, 12, 15);
