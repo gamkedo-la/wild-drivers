@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,17 +7,12 @@ public class BikeDrive : MonoBehaviour
     public int playerNumber; //To determine which player is this script is on
 
     public float driveSpeed;
-    public float maxTurnRate;
-    private float turnRate;
-    public float boost = 100.0f;
+    public float turnRate = 25;
     public float acceleration = 0.0f;
     public float accelerationCap = 1.0f;
-    public float brakeForce = 10f;
-    public string currentPowerUp;
 
     public Transform restartAt;
 
-    public WheelCollider frontCollider, backCollider;
     public Transform frontTransform, backTransform;
 
     [SerializeField] private Rigidbody rb;
@@ -36,8 +31,6 @@ public class BikeDrive : MonoBehaviour
         {
             Debug.LogWarning("Car isn't set up right, no rigidbody found?");
         }
-
-        frontCollider.ConfigureVehicleSubsteps(5, 12, 15);
         RestartAtSpawn();
         Debug.Log(gameObject.GetComponent<Rigidbody>().centerOfMass);
         //gameObject.GetComponent<Rigidbody>().centerOfMass = new Vector3(0.0f, -0.5f, 0.0f);
@@ -48,7 +41,7 @@ public class BikeDrive : MonoBehaviour
         transform.position = restartAt.position;
         transform.rotation = restartAt.rotation;
 
-        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -62,8 +55,8 @@ public class BikeDrive : MonoBehaviour
         setInputForPlayer();
         Accelerate();
         Turn();
-        UpdateWheelPose(frontCollider, frontTransform);
-        UpdateWheelPose(backCollider, backTransform);
+        UpdateWheelPose(frontTransform);
+        UpdateWheelPose(backTransform);
 
         //Debug.Log(verticalInput);
 
@@ -75,28 +68,34 @@ public class BikeDrive : MonoBehaviour
 
     public void Accelerate()
     {
-        frontCollider.motorTorque = driveSpeed * verticalInput;
-        backCollider.motorTorque = driveSpeed * verticalInput;
+        if (verticalInput != 0)
+        {
+            acceleration += verticalInput / 50;
+        }
+        else
+        {
+            acceleration *= 0.98f;
+        }
+        if (acceleration > accelerationCap)
+        {
+            acceleration = accelerationCap;
+        }
+        if (acceleration < -accelerationCap)
+        {
+            acceleration = -accelerationCap;
+        }
 
-        /*frontLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
-        frontRightCollider.ConfigureVehicleSubsteps(5, 12, 15);
-        backLeftCollider.ConfigureVehicleSubsteps(5, 12, 15);
-        backRightCollider.ConfigureVehicleSubsteps(5, 12, 15);*/
+        transform.position += transform.forward * Time.deltaTime * driveSpeed * acceleration;
     }
 
     private void Turn()
     {
-        turnRate = maxTurnRate * horizontalInput;
-        frontCollider.steerAngle = turnRate;
+        transform.Rotate(Vector3.up, turnRate * Time.deltaTime * horizontalInput *acceleration);
     }
 
-    private void UpdateWheelPose(WheelCollider wheelCollider, Transform wheelTransform)
+    private void UpdateWheelPose(Transform wheelTransform)
     {
-        Vector3 position = wheelTransform.position;
-        Quaternion rotation = wheelTransform.rotation;
-        wheelCollider.GetWorldPose(out position, out rotation);
-        wheelTransform.position = position;
-        wheelTransform.rotation = rotation;
+
     }
 
     public void setInputForPlayer()

@@ -16,6 +16,8 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private string currentPowerUp; //Current usable powerup
     private bool isPowerUpReadyToLaunch = false;// is there some powerup active on the attach point. If there is that means that player can use that power up.
 
+    private int playerNumber;
+
     private float powerUpEffectTimer; // If powerUp does something when it is pushed for number of seconds (for example speed powerUp increases players speed for 5 seconds).
     private string currentPowerUpEffect; // Current powerUp Effect (Might be changed to a list later on)
 
@@ -25,6 +27,15 @@ public class PowerUp : MonoBehaviour
 
     void Start()
     {
+        if (gameObject.GetComponent<CarDrive>() == null)
+        {
+            playerNumber = gameObject.GetComponent<BikeDrive>().playerNumber;
+        }
+        else
+        {
+            playerNumber = gameObject.GetComponent<CarDrive>().playerNumber;
+        }
+
         rb = GetComponent<Rigidbody>();
 
     }
@@ -102,7 +113,7 @@ public class PowerUp : MonoBehaviour
                     Destroy(rockettoLaunch);
                     rocketFired = Instantiate(rocketfiredPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
                     rocketFired.GetComponent<Rigidbody>().velocity = rb.velocity * missilelag;
-                    rocketFired.GetComponent<Missile>().playerNumber = gameObject.GetComponent<CarDrive>().playerNumber;
+                    rocketFired.GetComponent<Missile>().playerNumber = playerNumber;
                     break;
                 case "SpeedPowerUp":
                     //powerUpEffectTimer = 5;
@@ -120,11 +131,11 @@ public class PowerUp : MonoBehaviour
     {
         if (Time.timeScale != 0f)
         {
-            if (gameObject.GetComponent<CarDrive>().playerNumber == 1)
+            if (playerNumber == 1)
             {
                 fireInput = Input.GetButtonDown("Fire1");
             }
-            else if (gameObject.GetComponent<CarDrive>().playerNumber == 2)
+            else if (playerNumber == 2)
             {
                 fireInput = Input.GetKeyDown(KeyCode.Space);
             }

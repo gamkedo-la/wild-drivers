@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerUIHandler : MonoBehaviour
 {
-    private CarDrive playerCarDrive;
     private CarNodeHandling playerCarNodeHandling;
 
     private float restartTimer = 5;
@@ -24,10 +23,16 @@ public class PlayerUIHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerCarDrive = gameObject.GetComponent<CarDrive>();
+        if (gameObject.GetComponent<CarDrive>() == null)
+        {
+            playerNumber = gameObject.GetComponent<BikeDrive>().playerNumber;
+        }
+        else
+        {
+            playerNumber = gameObject.GetComponent<CarDrive>().playerNumber;
+        }
         playerCarNodeHandling = gameObject.GetComponent<CarNodeHandling>();
 
-        playerNumber = playerCarDrive.playerNumber;
         currentLap = playerCarNodeHandling.currentLap;
         lapIndicator.GetComponent<Text>().text = "Current Lap:" + currentLap;
     }

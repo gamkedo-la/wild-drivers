@@ -15,7 +15,14 @@ public class CarNodeHandling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerNumber = gameObject.GetComponent<CarDrive>().playerNumber;
+        if (gameObject.GetComponent<CarDrive>() == null)
+        {
+            playerNumber = gameObject.GetComponent<BikeDrive>().playerNumber;
+        }
+        else
+        {
+            playerNumber = gameObject.GetComponent<CarDrive>().playerNumber;
+        }
         for (int i = 0; i < GameObject.FindGameObjectWithTag("NodeList").transform.childCount; i++)
         {
             nodes.Add(GameObject.FindGameObjectWithTag("NodeList").transform.GetChild(i).gameObject);
