@@ -80,17 +80,18 @@ public class BikeDrive : MonoBehaviour
         {
             acceleration = accelerationCap;
         }
-        if (acceleration < -accelerationCap)
+        else if (acceleration < -accelerationCap)
         {
             acceleration = -accelerationCap;
         }
-
-        transform.position += transform.forward * Time.deltaTime * driveSpeed * acceleration;
+        rb.velocity = transform.forward * Time.deltaTime * driveSpeed * acceleration;
+        
     }
 
     private void Turn()
     {
-        transform.Rotate(Vector3.up, turnRate * Time.deltaTime * horizontalInput *acceleration);
+        //transform.Rotate(Vector3.up, turnRate * Time.deltaTime * horizontalInput *acceleration);
+        rb.angularVelocity = new Vector3(0, turnRate * horizontalInput * acceleration, 0);
     }
 
     private void UpdateWheelPose(Transform wheelTransform)
