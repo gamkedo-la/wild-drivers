@@ -31,6 +31,18 @@ public class CarDrive : MonoBehaviour {
 
     //public GameObject minimapIcon;// Is used for enabling minimapIcon gameobject when game starts.
 
+    private void Awake()
+    {
+        //Code for the build. It is used for car selection menu.
+
+        /*
+        if (CarSelection.currentVehicle != "RaceCar")
+        {
+            gameObject.SetActive(false);
+        }
+        */
+    }
+
     // Use this for initialization
     void Start () {
         //Debug.Log("Car object named " + gameObject.name +" started script!");

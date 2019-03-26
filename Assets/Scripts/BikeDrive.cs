@@ -20,6 +20,16 @@ public class BikeDrive : MonoBehaviour
     public float horizontalInput;
 
     //public GameObject minimapIcon;// Is used for enabling minimapIcon gameobject when game starts.
+    private void Awake()
+    {
+        //Code for the build. It is used for car selection menu.
+        /*
+        if (CarSelection.currentVehicle != "Motorcycle")
+        {
+            gameObject.SetActive(false);
+        }
+        */
+    }
 
     // Use this for initialization
     void Start()
