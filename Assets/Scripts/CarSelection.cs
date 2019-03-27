@@ -5,4 +5,5 @@ using UnityEngine;
 public static class CarSelection
 {
     public static string currentVehicle { get; set; } = "RaceCar";
+    public static string currentMode { get; set; } = "Multiplayer";
 }

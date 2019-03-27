@@ -7,6 +7,7 @@ public class ButtonController : MonoBehaviour
 {
     public GameObject canvasMenuPanel;
     public GameObject canvasCarSelectionPanel;
+    public GameObject canvasModeSelectionPanel;
 
     public void ChangeScene(string SceneName)
     {
@@ -21,6 +22,11 @@ public class ButtonController : MonoBehaviour
         canvasMenuPanel.SetActive(false);
         canvasCarSelectionPanel.SetActive(true);
     }
+    public void ModeSelection()
+    {
+        canvasMenuPanel.SetActive(false);
+        canvasModeSelectionPanel.SetActive(true);
+    }
     public void Options()
     {
         Debug.Log("Options button clicked");
@@ -34,5 +40,11 @@ public class ButtonController : MonoBehaviour
         CarSelection.currentVehicle = vehicleName;
         canvasMenuPanel.SetActive(true);
         canvasCarSelectionPanel.SetActive(false);
+    }
+    public void ChangeMode(string modeName)
+    {
+        CarSelection.currentMode = modeName;
+        canvasMenuPanel.SetActive(true);
+        canvasModeSelectionPanel.SetActive(false);
     }
 }
