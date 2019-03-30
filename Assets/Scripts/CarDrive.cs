@@ -35,12 +35,15 @@ public class CarDrive : MonoBehaviour {
     {
         //Code for the build. It is used for car selection menu.
 
-        /*
+        
         if (CarSelection.currentVehicle != "RaceCar")
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
-        */
+        else if(playerNumber == 1)
+        {
+            CarSelection.audioListener = gameObject.transform.Find("Camera").GetComponent<AudioListener>();
+        }
     }
 
     // Use this for initialization

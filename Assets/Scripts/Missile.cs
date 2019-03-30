@@ -14,23 +14,25 @@ public class Missile : MonoBehaviour
     public int playerNumber;
     private bool explodeInput;
 
+    public AudioClip audioClip;
+    public AudioSource audioSource;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = audioClip;
     }
 
     void FixedUpdate()
     {
         handleInput();
-
         rb.AddForce(transform.forward * -thrust);
         //rb.AddForce(transform.forward * -thrust, ForceMode.Impulse);
     }
 
     void Update()
     {
-
+        audioSource.Play();
         if (explodeInput)
         {
             
