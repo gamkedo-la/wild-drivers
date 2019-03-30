@@ -21,6 +21,7 @@ public class Missile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.clip = audioClip;
+        audioSource.Play();
     }
 
     void FixedUpdate()
@@ -32,7 +33,7 @@ public class Missile : MonoBehaviour
 
     void Update()
     {
-        audioSource.Play();
+        
         if (explodeInput)
         {
             
