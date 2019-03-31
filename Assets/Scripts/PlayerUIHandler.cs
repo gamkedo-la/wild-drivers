@@ -23,6 +23,7 @@ public class PlayerUIHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        minimapIcon.SetActive(true);
         if (gameObject.GetComponent<CarDrive>() == null)
         {
             playerNumber = gameObject.GetComponent<BikeDrive>().playerNumber;
