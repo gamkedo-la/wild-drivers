@@ -245,6 +245,11 @@ PrefabInstance:
       propertyPath: AttachPoint
       value: 
       objectReference: {fileID: 8467360051227553094}
+    - target: {fileID: 228737604891294630, guid: a26ebe3896b916a44ba2c7c1b12000ad,
+        type: 3}
+      propertyPath: smokeBombParticle
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8864117297434828604, guid: a26ebe3896b916a44ba2c7c1b12000ad,
         type: 3}
       propertyPath: player
@@ -270,9 +275,7 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1124252734, guid: a26ebe3896b916a44ba2c7c1b12000ad, type: 3}
-    - {fileID: 2019810106, guid: a26ebe3896b916a44ba2c7c1b12000ad, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a26ebe3896b916a44ba2c7c1b12000ad, type: 3}
 --- !u!4 &6919968430275229760 stripped
 Transform:
@@ -395,7 +398,7 @@ PrefabInstance:
     - target: {fileID: 6220555585750300789, guid: ff02cfbed31749e4eb75be235d701efb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -34.215927
+      value: -34.49
       objectReference: {fileID: 0}
     - target: {fileID: 6220555585750300789, guid: ff02cfbed31749e4eb75be235d701efb,
         type: 3}
@@ -502,6 +505,11 @@ PrefabInstance:
       propertyPath: AttachPoint
       value: 
       objectReference: {fileID: 6015781370080727788}
+    - target: {fileID: 2970116530452832983, guid: ff02cfbed31749e4eb75be235d701efb,
+        type: 3}
+      propertyPath: smokeBombParticle
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6734104482956740937, guid: ff02cfbed31749e4eb75be235d701efb,
         type: 3}
       propertyPath: player
@@ -547,10 +555,7 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1317684338635742514, guid: ff02cfbed31749e4eb75be235d701efb, type: 3}
-    - {fileID: 3485952382537256642, guid: ff02cfbed31749e4eb75be235d701efb, type: 3}
-    - {fileID: 1317684338635742514, guid: ff02cfbed31749e4eb75be235d701efb, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff02cfbed31749e4eb75be235d701efb, type: 3}
 --- !u!1 &9166453877655856794 stripped
 GameObject:
@@ -714,6 +719,10 @@ PrefabInstance:
       propertyPath: AttachPoint
       value: 
       objectReference: {fileID: 6919968429533384315}
+    - target: {fileID: 926544018, guid: 667248bfb36550044a0d132795f64458, type: 3}
+      propertyPath: smokeBombParticle
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 279448265721725217, guid: 667248bfb36550044a0d132795f64458,
         type: 3}
       propertyPath: restartAt
@@ -807,8 +816,7 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1406818603056865730, guid: 667248bfb36550044a0d132795f64458, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 667248bfb36550044a0d132795f64458, type: 3}
 --- !u!4 &8326782492583411603 stripped
 Transform:
@@ -1043,6 +1051,11 @@ PrefabInstance:
       propertyPath: AttachPoint
       value: 
       objectReference: {fileID: 6015781368937427117}
+    - target: {fileID: 2970116530452832983, guid: ff02cfbed31749e4eb75be235d701efb,
+        type: 3}
+      propertyPath: smokeBombParticle
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6734104482956740937, guid: ff02cfbed31749e4eb75be235d701efb,
         type: 3}
       propertyPath: player

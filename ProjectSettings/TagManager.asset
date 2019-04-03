@@ -18,6 +18,7 @@ TagManager:
   - Canvas
   - MinimapIcon
   - WheelColliderParent
+  - SmokeBomb
   layers:
   - Default
   - TransparentFX

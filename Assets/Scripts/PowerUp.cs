@@ -10,6 +10,8 @@ public class PowerUp : MonoBehaviour
     public Transform AttachPoint;
     private GameObject rockettoLaunch;
     private GameObject rocketFired;
+    public GameObject smokeBombParticle;
+
     private ParticleSystem smoke;
     private Rigidbody rb;
     private float missilelag = 0.75f;// scales initial velocity so that missile appears to have start up lag
@@ -62,6 +64,10 @@ public class PowerUp : MonoBehaviour
                     isPowerUpReadyToLaunch = true;
                     pickup.gameObject.SetActive(false);
                     rockettoLaunch = Instantiate(rocketPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
+                    break;
+                case "SmokeBomb":
+                    isPowerUpReadyToLaunch = true;
+                    pickup.gameObject.SetActive(false);
                     break;
             }
             Destroy(pickup.gameObject);
@@ -120,6 +126,9 @@ public class PowerUp : MonoBehaviour
                     gameObject.GetComponent<Rigidbody>().velocity *= 1.3f;
                     //gameObject.GetComponent<CarDrive>().isBoostActive = true;
                     currentPowerUpEffect = currentPowerUp;
+                    break;
+                case "SmokeBomb":
+                    GameObject smokeBomb = Instantiate(smokeBombParticle, AttachPoint.position - (Vector3.forward * 5), AttachPoint.rotation, AttachPoint.parent) as GameObject;
                     break;
             }
             isPowerUpReadyToLaunch = false;
