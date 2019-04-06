@@ -17,7 +17,7 @@ public class CarDrive : MonoBehaviour {
     public string currentPowerUp;
     public bool isBoostActive;
 
-
+	
     public Transform restartAt;
 
     public WheelCollider frontRightCollider, frontLeftCollider, backRightCollider, backLeftCollider, bikeBackCollider, bikeFrontCollider;
@@ -29,9 +29,9 @@ public class CarDrive : MonoBehaviour {
     public float verticalInput;
     public float horizontalInput;
 
-    //public GameObject minimapIcon;// Is used for enabling minimapIcon gameobject when game starts.
-
-    private void Awake()
+	//public GameObject minimapIcon;// Is used for enabling minimapIcon gameobject when game starts.
+	
+	private void Awake()
     {
         //Code for the build. It is used for car selection menu.
 

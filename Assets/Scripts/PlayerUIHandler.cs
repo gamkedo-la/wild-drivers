@@ -20,8 +20,12 @@ public class PlayerUIHandler : MonoBehaviour
     public GameObject minimapIcon;// Is used for enabling minimapIcon gameobject when game starts.
     public GameObject speedTextObject;
     public float speedInKPH;
-    // Start is called before the first frame update
-    void Start()
+	public float maxSpeedInKPH;
+
+	private AudioSource audSrc;
+
+	// Start is called before the first frame update
+	void Start()
     {
         minimapIcon.SetActive(true);
         if (gameObject.GetComponent<CarDrive>() == null)
@@ -36,6 +40,8 @@ public class PlayerUIHandler : MonoBehaviour
 
         currentLap = playerCarNodeHandling.currentLap;
         lapIndicator.GetComponent<Text>().text = "Current Lap:" + currentLap;
+
+		audSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,6 +52,7 @@ public class PlayerUIHandler : MonoBehaviour
 
         speedInKPH = Mathf.Round((gameObject.GetComponent<Rigidbody>().velocity.magnitude) * 3.6f);
         speedTextObject.GetComponent<Text>().text = speedInKPH + "/Kph";
+		audSrc.volume = speedInKPH / maxSpeedInKPH;
     }
 
     public void PauseHandling()
