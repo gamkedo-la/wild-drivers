@@ -44129,6 +44129,7 @@ MonoBehaviour:
     type: 3}
   AttachPoint: {fileID: 1552248208145021017}
   smokeBombParticle: {fileID: 0}
+  smokeBombOnCar: {fileID: 0}
   currentPowerUp: 
 --- !u!114 &1818830454
 MonoBehaviour:
@@ -58769,6 +58770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewIndex: 0
+  playerCanvas: {fileID: 66456015}
 --- !u!1 &2150732432476054719
 GameObject:
   m_ObjectHideFlags: 0

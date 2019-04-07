@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraViewSwitcher : MonoBehaviour
 {
 	public int viewIndex = 0;
+	public Canvas playerCanvas;
+
 	private int totalViews = 0;
 
     void Start()
@@ -15,7 +17,8 @@ public class CameraViewSwitcher : MonoBehaviour
 			transform.GetChild(i).gameObject.SetActive(false);
 		
 		transform.GetChild(viewIndex).gameObject.SetActive(true);
-    }
+		playerCanvas.worldCamera = transform.GetChild(viewIndex).gameObject.GetComponent<Camera>();
+	}
 	
     void Update()
     {
@@ -26,8 +29,9 @@ public class CameraViewSwitcher : MonoBehaviour
 
 			for (int i = 0; i < totalViews; i++)
 				transform.GetChild(i).gameObject.SetActive(false);
-
+				
 			transform.GetChild(viewIndex).gameObject.SetActive(true);
+			playerCanvas.worldCamera = transform.GetChild(viewIndex).gameObject.GetComponent<Camera>();
 		}
     }
 
