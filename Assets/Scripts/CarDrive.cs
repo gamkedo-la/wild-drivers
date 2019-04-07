@@ -42,7 +42,7 @@ public class CarDrive : MonoBehaviour {
         }
         else if(playerNumber == 1)
         {
-            CarSelection.audioListener = gameObject.transform.Find("Camera").GetComponent<AudioListener>();
+            CarSelection.audioListener = gameObject.transform.Find("CameraViews").GetComponent<AudioListener>();
         }
     }
 
