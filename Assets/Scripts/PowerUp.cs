@@ -8,9 +8,10 @@ public class PowerUp : MonoBehaviour
     public GameObject rocketfiredPrefab;
     public GameObject homingMissilePrefab;
     public Transform AttachPoint;
-    private GameObject rockettoLaunch;
+    private GameObject powerUpToLaunch;// Power up that is current on the car
     private GameObject rocketFired;
     public GameObject smokeBombParticle;
+    public GameObject smokeBombOnCar;
 
     private ParticleSystem smoke;
     private Rigidbody rb;
@@ -63,11 +64,12 @@ public class PowerUp : MonoBehaviour
                 case "ToonMissile":
                     isPowerUpReadyToLaunch = true;
                     pickup.gameObject.SetActive(false);
-                    rockettoLaunch = Instantiate(rocketPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
+                    powerUpToLaunch = Instantiate(rocketPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
                     break;
                 case "SmokeBomb":
                     isPowerUpReadyToLaunch = true;
                     pickup.gameObject.SetActive(false);
+                    powerUpToLaunch = Instantiate(smokeBombOnCar, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
                     break;
             }
             Destroy(pickup.gameObject);
@@ -110,24 +112,27 @@ public class PowerUp : MonoBehaviour
             switch (currentPowerUp)
             {
                 case "HomingMissile":
+                    Destroy(powerUpToLaunch);
                     GameObject bullet = Instantiate(homingMissilePrefab, transform.position, transform.rotation);
                     GameObject enemy = (gameObject.GetComponent<CarDrive>().playerNumber == 1) ? GameObject.FindGameObjectWithTag("Player2") : GameObject.FindGameObjectWithTag("Player1");
                     bullet.GetComponent<MissileScript>().target = enemy;
                     bullet.GetComponent<MissileScript>().source = this.gameObject;
                     break;
                 case "ToonMissile":
-                    Destroy(rockettoLaunch);
+                    Destroy(powerUpToLaunch);
                     rocketFired = Instantiate(rocketfiredPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
                     rocketFired.GetComponent<Rigidbody>().velocity = rb.velocity * missilelag;
                     rocketFired.GetComponent<Missile>().playerNumber = playerNumber;
                     break;
                 case "SpeedPowerUp":
+                    Destroy(powerUpToLaunch);
                     //powerUpEffectTimer = 5;
                     gameObject.GetComponent<Rigidbody>().velocity *= 1.3f;
                     //gameObject.GetComponent<CarDrive>().isBoostActive = true;
                     currentPowerUpEffect = currentPowerUp;
                     break;
                 case "SmokeBomb":
+                    Destroy(powerUpToLaunch);
                     GameObject smokeBomb = Instantiate(smokeBombParticle, AttachPoint.position - (Vector3.forward * 5), AttachPoint.rotation, AttachPoint.parent) as GameObject;
                     break;
             }

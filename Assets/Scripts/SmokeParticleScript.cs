@@ -14,6 +14,7 @@ public class SmokeParticleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.eulerAngles = new Vector3(270, 0, 0);
         if (!ps.IsAlive())
         {
             transform.parent.gameObject.SetActive(false);
