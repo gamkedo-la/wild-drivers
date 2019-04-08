@@ -20,8 +20,9 @@ public class PlayerUIHandler : MonoBehaviour
     public GameObject minimapIcon;// Is used for enabling minimapIcon gameobject when game starts.
     public GameObject speedTextObject;
     public float speedInKPH;
-    // Start is called before the first frame update
-    void Start()
+	
+	// Start is called before the first frame update
+	void Start()
     {
         minimapIcon.SetActive(true);
         if (gameObject.GetComponent<CarDrive>() == null)

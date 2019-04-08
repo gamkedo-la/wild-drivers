@@ -17,7 +17,7 @@ public class CarDrive : MonoBehaviour {
     public string currentPowerUp;
     public bool isBoostActive;
 
-
+	
     public Transform restartAt;
 
     public WheelCollider frontRightCollider, frontLeftCollider, backRightCollider, backLeftCollider, bikeBackCollider, bikeFrontCollider;
@@ -29,9 +29,14 @@ public class CarDrive : MonoBehaviour {
     public float verticalInput;
     public float horizontalInput;
 
-    //public GameObject minimapIcon;// Is used for enabling minimapIcon gameobject when game starts.
+	//public GameObject minimapIcon;// Is used for enabling minimapIcon gameobject when game starts.
 
-    private void Awake()
+	public AudioSource idleEngineAudioSource;
+	public AudioSource raceEngineAudioSource;
+	public float maxIdleEngineVolume;
+
+
+	private void Awake()
     {
         //Code for the build. It is used for car selection menu.
 
@@ -42,7 +47,7 @@ public class CarDrive : MonoBehaviour {
         }
         else if(playerNumber == 1)
         {
-            CarSelection.audioListener = gameObject.transform.Find("Camera").GetComponent<AudioListener>();
+            CarSelection.audioListener = gameObject.transform.Find("CameraViews").GetComponent<AudioListener>();
         }
     }
 
@@ -131,13 +136,16 @@ public class CarDrive : MonoBehaviour {
             frontRightCollider.motorTorque = driveSpeed * verticalInput;
             backLeftCollider.motorTorque = driveSpeed * verticalInput;
             backRightCollider.motorTorque = driveSpeed * verticalInput;
-            /*if (playerNumber == 1)
+			/*if (playerNumber == 1)
             {
                 Debug.Log(frontLeftCollider.);
                 Debug.Log(frontRightCollider.forwardFriction);
                 Debug.Log(backLeftCollider.forwardFriction);
                 Debug.Log(backRightCollider.forwardFriction);
             }*/
+
+			idleEngineAudioSource.volume = Mathf.Abs((1f - verticalInput) * maxIdleEngineVolume);
+			raceEngineAudioSource.volume = Mathf.Abs(verticalInput);
         }
 
         /*if (bikeBackCollider != null)

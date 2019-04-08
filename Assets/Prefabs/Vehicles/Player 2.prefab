@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 2
+  startingDriveSpeed: 0
   driveSpeed: 4500
   maxTurnRate: 50
   boost: 100
@@ -242,22 +243,23 @@ MonoBehaviour:
   accelerationCap: 1
   brakeForce: 50
   currentPowerUp: 
-  powerUpTimer: 0
-  isWeaponActive: 0
-  currentWeapon: 
-  missileCount: 0
-  bulletPrefab: {fileID: 1600800133853954, guid: c0ed029767708fb41a2bf6a8396890de,
-    type: 3}
+  isBoostActive: 0
   restartAt: {fileID: 0}
   frontRightCollider: {fileID: 7498028494862414854}
   frontLeftCollider: {fileID: 1561870953747794680}
   backRightCollider: {fileID: 5659396369407945070}
   backLeftCollider: {fileID: 726000913738891133}
+  bikeBackCollider: {fileID: 0}
+  bikeFrontCollider: {fileID: 0}
   frontRightTransform: {fileID: 921615456}
   frontLeftTransform: {fileID: 2092173031}
   backRightTransform: {fileID: 1124997339}
   backLeftTransform: {fileID: 417557260}
+  bikeBackTransform: {fileID: 0}
+  bikeFrontTransform: {fileID: 0}
   rb: {fileID: 0}
+  verticalInput: 0
+  horizontalInput: 0
 --- !u!1 &166127947
 GameObject:
   m_ObjectHideFlags: 0
