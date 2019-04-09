@@ -401,6 +401,9 @@ MonoBehaviour:
   rb: {fileID: 0}
   verticalInput: 0
   horizontalInput: 0
+  idleEngineAudioSource: {fileID: 0}
+  raceEngineAudioSource: {fileID: 0}
+  maxIdleEngineVolume: 0
 --- !u!114 &8471926025888521916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +422,6 @@ MonoBehaviour:
   minimapIcon: {fileID: 1669324766}
   speedTextObject: {fileID: 5671048175917441496}
   speedInKPH: 0
-  maxSpeedInKPH: 0
 --- !u!114 &926544018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58600,7 +58602,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 875741537520452779}
-  - component: {fileID: 8067888798395099944}
   - component: {fileID: 6191501788155360170}
   m_Layer: 0
   m_Name: CameraViews
@@ -58627,14 +58628,6 @@ Transform:
   m_Father: {fileID: 7121993640370590958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &8067888798395099944
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2326679196394938768}
-  m_Enabled: 1
 --- !u!114 &6191501788155360170
 MonoBehaviour:
   m_ObjectHideFlags: 0

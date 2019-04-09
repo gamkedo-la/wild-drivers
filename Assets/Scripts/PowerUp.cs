@@ -12,8 +12,8 @@ public class PowerUp : MonoBehaviour
     private GameObject rocketFired;
     public GameObject smokeBombParticle;
     public GameObject smokeBombOnCar;
-
-    private ParticleSystem smoke;
+	
+	private ParticleSystem smoke;
     private Rigidbody rb;
     private float missilelag = 0.75f;// scales initial velocity so that missile appears to have start up lag
     [SerializeField] private string currentPowerUp; //Current usable powerup
@@ -26,6 +26,7 @@ public class PowerUp : MonoBehaviour
 
     private bool fireInput;
     private bool fire2Input;
+	
 
 
     void Start()
@@ -40,43 +41,42 @@ public class PowerUp : MonoBehaviour
         }
 
         rb = GetComponent<Rigidbody>();
-
+		
     }
 
 
-    void OnTriggerEnter(Collider pickup)
-    {
-        if (pickup && pickup.transform && pickup.transform.parent && pickup.transform.parent.gameObject &&
-            pickup.transform.parent.gameObject.tag == "PowerUpZone" && !isPowerUpReadyToLaunch) // can be undefined
-        {
-            currentPowerUp = pickup.gameObject.tag;
-            Debug.Log("picked up something");
-            switch (currentPowerUp)//One time thing to do on the first time power up is taken
-            {
-                case "HomingMissile":
-                    isPowerUpReadyToLaunch = true;
-                    pickup.gameObject.SetActive(false);
-                    break;
-                case "SpeedPowerUp":
-                    isPowerUpReadyToLaunch = true;
-                    pickup.gameObject.SetActive(false);
-                    break;
-                case "ToonMissile":
-                    isPowerUpReadyToLaunch = true;
-                    pickup.gameObject.SetActive(false);
-                    powerUpToLaunch = Instantiate(rocketPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
-                    break;
-                case "SmokeBomb":
-                    isPowerUpReadyToLaunch = true;
-                    pickup.gameObject.SetActive(false);
-                    powerUpToLaunch = Instantiate(smokeBombOnCar, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
-                    break;
-            }
-            Destroy(pickup.gameObject);
-        }
-    }
+	void OnTriggerEnter(Collider pickup)
+	{
+		if (pickup && pickup.transform && pickup.transform.parent && pickup.transform.parent.gameObject &&
+			pickup.transform.parent.gameObject.tag == "PowerUpZone" && !isPowerUpReadyToLaunch) // can be undefined
+		{
+			currentPowerUp = pickup.gameObject.tag;
+			switch (currentPowerUp)//One time thing to do on the first time power up is taken
+			{
+				case "HomingMissile":
+					isPowerUpReadyToLaunch = true;
+					pickup.gameObject.SetActive(false);
+					break;
+				case "SpeedPowerUp":
+					isPowerUpReadyToLaunch = true;
+					pickup.gameObject.SetActive(false);
+					break;
+				case "ToonMissile":
+					isPowerUpReadyToLaunch = true;
+					pickup.gameObject.SetActive(false);
+					powerUpToLaunch = Instantiate(rocketPrefab, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
+					break;
+				case "SmokeBomb":
+					isPowerUpReadyToLaunch = true;
+					pickup.gameObject.SetActive(false);
+					powerUpToLaunch = Instantiate(smokeBombOnCar, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
+					break;
+			}
+			Destroy(pickup.gameObject);
+		}
+	}
 
-    void FixedUpdate()
+	void FixedUpdate()
     {
         handleInput();
         if (powerUpEffectTimer > 0)

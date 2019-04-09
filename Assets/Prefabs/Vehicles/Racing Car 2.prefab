@@ -43800,7 +43800,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1124252733}
   - component: {fileID: 1124252735}
-  - component: {fileID: 1124252734}
   m_Layer: 0
   m_Name: Rearview Mirror
   m_TagString: Untagged
@@ -43864,14 +43863,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1124252734
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124252732}
-  m_Enabled: 1
 --- !u!1 &1180827049
 GameObject:
   m_ObjectHideFlags: 0
@@ -44109,6 +44100,9 @@ MonoBehaviour:
   rb: {fileID: 0}
   verticalInput: 0
   horizontalInput: 0
+  idleEngineAudioSource: {fileID: 0}
+  raceEngineAudioSource: {fileID: 0}
+  maxIdleEngineVolume: 0
 --- !u!114 &228737604891294630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44166,7 +44160,6 @@ MonoBehaviour:
   minimapIcon: {fileID: 64883820}
   speedTextObject: {fileID: 2150732432476054719}
   speedInKPH: 0
-  maxSpeedInKPH: 0
 --- !u!1 &1807796799
 GameObject:
   m_ObjectHideFlags: 0
@@ -58722,7 +58715,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2009854734485238245}
-  - component: {fileID: 5875881398935531417}
   - component: {fileID: 4503344024500269948}
   m_Layer: 0
   m_Name: CameraViews
@@ -58749,14 +58741,6 @@ Transform:
   m_Father: {fileID: 1601497974}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &5875881398935531417
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263983400839332976}
-  m_Enabled: 1
 --- !u!114 &4503344024500269948
 MonoBehaviour:
   m_ObjectHideFlags: 0
