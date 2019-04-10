@@ -80,7 +80,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -367,7 +367,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: e3a6d2cedd61d4948bdabff11f5631b4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -464,7 +464,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -752,7 +752,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -848,7 +848,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -992,6 +992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1F1Car
       objectReference: {fileID: 0}
+    - target: {fileID: 8501700025222500704, guid: 79b04b1459d7e014b8e792ab47675c29,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 6148404609915935429, guid: 79b04b1459d7e014b8e792ab47675c29,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1087,6 +1092,11 @@ PrefabInstance:
       propertyPath: speedTextObject
       value: 
       objectReference: {fileID: 4462222067985483302}
+    - target: {fileID: 4852462016035839224, guid: 79b04b1459d7e014b8e792ab47675c29,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9048314380584836047, guid: 79b04b1459d7e014b8e792ab47675c29,
         type: 3}
       propertyPath: AttachPoint
@@ -1333,6 +1343,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 155077137182080732}
+    - target: {fileID: 6815564758938244689, guid: 9514b921289d7cf4ab8b7e58c6bea453,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6480219971235433150, guid: 9514b921289d7cf4ab8b7e58c6bea453,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1388,10 +1403,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4613288475369518121, guid: 9514b921289d7cf4ab8b7e58c6bea453,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4186251719141204350, guid: 9514b921289d7cf4ab8b7e58c6bea453,
         type: 3}
       propertyPath: m_Name
       value: Player2F1Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186251719141204350, guid: 9514b921289d7cf4ab8b7e58c6bea453,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 8787485722182581326, guid: 9514b921289d7cf4ab8b7e58c6bea453,
         type: 3}
@@ -1787,13 +1812,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6919968430129554134}
     - target: {fileID: 1601497971, guid: a26ebe3896b916a44ba2c7c1b12000ad, type: 3}
-      propertyPath: maxIdleEngineVolume
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601497971, guid: a26ebe3896b916a44ba2c7c1b12000ad, type: 3}
       propertyPath: turningAudioSource
       value: 
       objectReference: {fileID: 1520811277797486408}
+    - target: {fileID: 1601497971, guid: a26ebe3896b916a44ba2c7c1b12000ad, type: 3}
+      propertyPath: maxIdleEngineVolume
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1601497971, guid: a26ebe3896b916a44ba2c7c1b12000ad, type: 3}
       propertyPath: turningPitchOffset
       value: -0.1
@@ -2383,14 +2408,14 @@ PrefabInstance:
       objectReference: {fileID: 6919968430129554133}
     - target: {fileID: 279448265721725217, guid: 667248bfb36550044a0d132795f64458,
         type: 3}
-      propertyPath: maxIdleEngineVolume
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 279448265721725217, guid: 667248bfb36550044a0d132795f64458,
-        type: 3}
       propertyPath: turningAudioSource
       value: 
       objectReference: {fileID: 7518158728470469483}
+    - target: {fileID: 279448265721725217, guid: 667248bfb36550044a0d132795f64458,
+        type: 3}
+      propertyPath: maxIdleEngineVolume
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 279448265721725217, guid: 667248bfb36550044a0d132795f64458,
         type: 3}
       propertyPath: turningPitchOffset
@@ -2589,6 +2614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player2Bike
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501091272437052214, guid: ff02cfbed31749e4eb75be235d701efb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 1501091272437052214, guid: ff02cfbed31749e4eb75be235d701efb,
         type: 3}
