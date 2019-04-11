@@ -16827,6 +16827,8 @@ MonoBehaviour:
   homingMissilePrefab: {fileID: 1600800133853954, guid: c0ed029767708fb41a2bf6a8396890de,
     type: 3}
   AttachPoint: {fileID: 3707856501419707254}
+  smokeBombParticle: {fileID: 0}
+  smokeBombOnCar: {fileID: 0}
   currentPowerUp: 
 --- !u!114 &7657067445465344773
 MonoBehaviour:
@@ -19549,7 +19551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6184701568454075670
 Transform:
   m_ObjectHideFlags: 0
@@ -19558,7 +19560,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5774086610477772524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.39, y: 0.3649999, z: 58.89}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 6220555585750300789}
@@ -19589,7 +19591,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e7aa91b98e94e43e2bf3b496b6c60239, type: 2}
+  - {fileID: 2100000, guid: 659221626b6a62b49aa8279683b4f479, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
