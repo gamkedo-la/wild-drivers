@@ -34,12 +34,9 @@ public class RoadCollisionDetector : MonoBehaviour
                 collision.gameObject.GetComponent<CarDrive>().backLeftCollider.brakeTorque = Mathf.Infinity;
                 collision.gameObject.GetComponent<CarDrive>().backRightCollider.brakeTorque = Mathf.Infinity;
             }
-
-
+			
 			if (intensity <= 0.3f)
-            {
                 audioSource.PlayOneShot(collisionSounds[0], (intensity * 2f) + minVolume);
-            }
 			else
 				audioSource.PlayOneShot(collisionSounds[1], intensity + minVolume);
 		}
