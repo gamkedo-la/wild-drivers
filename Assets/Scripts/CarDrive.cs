@@ -16,6 +16,7 @@ public class CarDrive : MonoBehaviour {
     public float brakeForce = 10f;
     public string currentPowerUp;
     public bool isBoostActive;
+    public bool isF1Car;//is this car the f1 car or race car
 
 	
     public Transform restartAt;
@@ -45,7 +46,7 @@ public class CarDrive : MonoBehaviour {
         //Code for the build. It is used for car selection menu.
 
         
-        if (CarSelection.currentVehicle != "RaceCar")
+        if ((CarSelection.currentVehicle != "RaceCar" && !isF1Car) || (CarSelection.currentVehicle != "F1Car" && isF1Car))
         {
             //gameObject.SetActive(false);
         }
@@ -134,6 +135,10 @@ public class CarDrive : MonoBehaviour {
 
     public void Accelerate()
     {
+        frontLeftCollider.brakeTorque = 0;
+        frontRightCollider.brakeTorque = 0;
+        backLeftCollider.brakeTorque = 0;
+        backRightCollider.brakeTorque = 0;
         if (frontLeftCollider != null)
         {
             frontLeftCollider.motorTorque = driveSpeed * verticalInput;

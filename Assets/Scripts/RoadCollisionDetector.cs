@@ -25,9 +25,21 @@ public class RoadCollisionDetector : MonoBehaviour
 		if (collision.gameObject.tag.Contains("Player"))
 		{
 			float intensity = collision.relativeVelocity.magnitude / maxVelocity;
+            Debug.Log(intensity);
+
+            if (collision.gameObject.GetComponent<CarDrive>() != null && intensity <= 0.3f)
+            {
+                collision.gameObject.GetComponent<CarDrive>().frontLeftCollider.brakeTorque = Mathf.Infinity;
+                collision.gameObject.GetComponent<CarDrive>().frontRightCollider.brakeTorque = Mathf.Infinity;
+                collision.gameObject.GetComponent<CarDrive>().backLeftCollider.brakeTorque = Mathf.Infinity;
+                collision.gameObject.GetComponent<CarDrive>().backRightCollider.brakeTorque = Mathf.Infinity;
+            }
+
 
 			if (intensity <= 0.3f)
-				audioSource.PlayOneShot(collisionSounds[0], (intensity*2f) + minVolume);
+            {
+                audioSource.PlayOneShot(collisionSounds[0], (intensity * 2f) + minVolume);
+            }
 			else
 				audioSource.PlayOneShot(collisionSounds[1], intensity + minVolume);
 		}
