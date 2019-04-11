@@ -35,8 +35,6 @@ public class CarDrive : MonoBehaviour {
 	public AudioSource raceEngineAudioSource;
 	public AudioSource turningAudioSource;
 	public float maxIdleEngineVolume;
-	public float turningPitchOffset;
-	public float turningPitchFactor;
 
 	private float sliderX = 0f;
 	private float sliderZ = 0f;
@@ -181,20 +179,17 @@ public class CarDrive : MonoBehaviour {
             bikeFrontCollider.steerAngle = turnRate;
         }
 		
-		sliderX = Mathf.Lerp(sliderX, transform.InverseTransformDirection(rb.velocity).x / 3, 0.02f);
+		sliderX = Mathf.Lerp(sliderX, transform.InverseTransformDirection(rb.velocity).x / 5, 0.25f);
 		if (sliderX > 1)
             sliderX = 1;
         if (sliderX < -1)
             sliderX = -1;
-		
-		sliderZ = Mathf.Lerp(sliderZ, transform.InverseTransformDirection(rb.velocity).z / 2, 0.02f);
+		sliderZ = Mathf.Lerp(sliderZ, transform.InverseTransformDirection(rb.velocity).z / 3, 0.25f);
 		if (sliderZ > 1)
             sliderZ = 1;
         if (sliderZ < 0)
             sliderZ = 0;
-
-		turningAudioSource.volume = Mathf.Abs(sliderZ * sliderX);
-		turningAudioSource.pitch = Mathf.Abs(turningPitchOffset + (sliderX * turningPitchFactor));
+		turningAudioSource.volume = Mathf.Abs(sliderZ*sliderX > 0.5f ? sliderZ*sliderX : 0f);
 	}
 
     private void UpdateWheelPose(WheelCollider wheelCollider, Transform wheelTransform)

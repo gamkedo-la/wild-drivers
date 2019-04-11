@@ -31,8 +31,13 @@ public class ModeHandlingScript : MonoBehaviour
 
             for (int i = 0; i < player1Vehicles.transform.childCount; i++)
             {
-				player1Vehicles.transform.GetChild(i).Find("CameraViews").GetComponent<CameraViewSwitcher>().SetSinglePlayerViewport();
-				player1Vehicles.transform.GetChild(i).Find("Rearview Mirror").GetComponent<Camera>().rect = new Rect(0.35f, 0.9f, 0.3f, 0.1f);
+				Transform camViews = player1Vehicles.transform.GetChild(i).Find("CameraViews");
+				if(camViews != null)
+					camViews.gameObject.GetComponent<CameraViewSwitcher>().SetSinglePlayerViewport();
+
+				Transform rearViewMirr = player1Vehicles.transform.GetChild(i).Find("Rearview Mirror");
+				if(rearViewMirr != null)
+					rearViewMirr.gameObject.GetComponent<Camera>().rect = new Rect(0.35f, 0.9f, 0.3f, 0.1f);
             }
         }
     }
