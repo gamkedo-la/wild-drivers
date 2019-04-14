@@ -151,7 +151,7 @@ public class PowerUp : MonoBehaviour
             }
             else if (playerNumber == 2)
             {
-                fireInput = Input.GetKeyDown(KeyCode.Space);
+                fireInput = Input.GetKeyDown("Fire1Player2");
             }
         }
 
