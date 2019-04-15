@@ -1,101 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1187617867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1187617868}
-  - component: {fileID: 1187617871}
-  - component: {fileID: 1187617870}
-  - component: {fileID: 1187617869}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1187617868
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187617867}
-  m_LocalRotation: {x: 0, y: 0.012295504, z: 0, w: 0.9999244}
-  m_LocalPosition: {x: 0.11155319, y: 3.128, z: -5.714}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 363009136755506645}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 1.409, z: 0}
---- !u!20 &1187617871
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187617867}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 0.5
-  near clip plane: 0.3
-  far clip plane: 4000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 1335
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!81 &1187617870
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187617867}
-  m_Enabled: 1
---- !u!114 &1187617869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187617867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf54f8daf69912c4690c1b0ee75d6ae7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 5739759373685106785}
 --- !u!1 &150329669533405387
 GameObject:
   m_ObjectHideFlags: 0
@@ -47368,7 +47272,6 @@ Transform:
   - {fileID: 4786006007461407979}
   - {fileID: 6537706713849624675}
   - {fileID: 2836448146774590619}
-  - {fileID: 1187617868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
@@ -47398,7 +47301,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshes: {fileID: 5604107990100373449}
+  bikeDriveScript: {fileID: 0}
   horizontalInput: 0
+  bikeAcceleration: 0
 --- !u!54 &1011151988
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -47429,6 +47334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 1
   driveSpeed: 5
+  turnRate: 25
   acceleration: 0
   accelerationCap: 1
   restartAt: {fileID: 0}
@@ -47456,6 +47362,8 @@ MonoBehaviour:
   homingMissilePrefab: {fileID: 1600800133853954, guid: c0ed029767708fb41a2bf6a8396890de,
     type: 3}
   AttachPoint: {fileID: 588366669641786130}
+  smokeBombParticle: {fileID: 0}
+  smokeBombOnCar: {fileID: 0}
   currentPowerUp: 
 --- !u!114 &5076142570863581765
 MonoBehaviour:
@@ -47475,6 +47383,9 @@ MonoBehaviour:
   minimapIcon: {fileID: 2318439030249768071}
   speedTextObject: {fileID: 221932970579751216}
   speedInKPH: 0
+  audioSource: {fileID: 0}
+  countDownClip: {fileID: 0}
+  countDownEndClip: {fileID: 0}
 --- !u!114 &1182200140825975327
 MonoBehaviour:
   m_ObjectHideFlags: 0

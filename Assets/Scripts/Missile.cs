@@ -60,7 +60,7 @@ public class Missile : MonoBehaviour
         }
         else if (playerNumber == 2 && Time.timeScale != 0f)
         {
-            explodeInput = Input.GetKeyDown("Fire2Player2");
+            explodeInput = Input.GetButtonDown("Fire2Player2");
         }
         else
         {

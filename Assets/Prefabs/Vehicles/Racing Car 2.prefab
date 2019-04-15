@@ -14702,7 +14702,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1601497974}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!146 &714370792
 WheelCollider:
@@ -14734,36 +14734,6 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 2
   m_Enabled: 1
---- !u!1 &913589598
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 913589599}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &913589599
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913589598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1601497974}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &982763505
 GameObject:
   m_ObjectHideFlags: 0
@@ -43892,7 +43862,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1601497974}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!146 &1180827051
 WheelCollider:
@@ -43953,7 +43923,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1601497974}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!146 &1225816112
 WheelCollider:
@@ -44025,7 +43995,6 @@ Transform:
   - {fileID: 1552248208145021017}
   - {fileID: 64883821}
   - {fileID: 66456016}
-  - {fileID: 913589599}
   - {fileID: 1810511372}
   - {fileID: 1180827050}
   - {fileID: 1225816113}
@@ -44084,6 +44053,7 @@ MonoBehaviour:
   brakeForce: 50
   currentPowerUp: 
   isBoostActive: 0
+  isF1Car: 0
   restartAt: {fileID: 0}
   frontRightCollider: {fileID: 1180827051}
   frontLeftCollider: {fileID: 714370792}
@@ -44102,6 +44072,7 @@ MonoBehaviour:
   horizontalInput: 0
   idleEngineAudioSource: {fileID: 0}
   raceEngineAudioSource: {fileID: 0}
+  turningAudioSource: {fileID: 0}
   maxIdleEngineVolume: 0
 --- !u!114 &228737604891294630
 MonoBehaviour:
@@ -44160,6 +44131,9 @@ MonoBehaviour:
   minimapIcon: {fileID: 64883820}
   speedTextObject: {fileID: 2150732432476054719}
   speedInKPH: 0
+  audioSource: {fileID: 0}
+  countDownClip: {fileID: 0}
+  countDownEndClip: {fileID: 0}
 --- !u!1 &1807796799
 GameObject:
   m_ObjectHideFlags: 0
@@ -58553,7 +58527,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1601497974}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!146 &1810511373
 WheelCollider:

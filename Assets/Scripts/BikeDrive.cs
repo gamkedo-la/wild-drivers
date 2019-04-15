@@ -26,11 +26,15 @@ public class BikeDrive : MonoBehaviour
         
         if (CarSelection.currentVehicle != "Motorcycle")
         {
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
-        else if(playerNumber == 1)
+        else
         {
-            CarSelection.audioListener = gameObject.transform.Find("Camera").GetComponent<AudioListener>();
+            gameObject.SetActive(true);
+        }
+        if(playerNumber == 1)
+        {
+            //CarSelection.audioListener = gameObject.transform.Find("Camera").GetComponent<AudioListener>();
         }
         
     }
