@@ -19,9 +19,13 @@ public class Missile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = audioClip;
-        audioSource.Play();
+
+		if (ButtonController.sound)
+		{
+			audioSource = gameObject.GetComponent<AudioSource>();
+			audioSource.clip = audioClip;
+			audioSource.Play();
+		}
     }
 
     void FixedUpdate()

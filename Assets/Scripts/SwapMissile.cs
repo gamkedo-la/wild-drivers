@@ -22,9 +22,13 @@ public class SwapMissile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = audioClip;
-        audioSource.Play();
+
+		if (ButtonController.sound)
+		{
+			audioSource = gameObject.GetComponent<AudioSource>();
+			audioSource.clip = audioClip;
+			audioSource.Play();
+		}
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
     }
