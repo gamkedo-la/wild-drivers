@@ -12,6 +12,8 @@ public class PowerUp : MonoBehaviour
     private GameObject rocketFired;
     public GameObject smokeBombParticle;
     public GameObject smokeBombOnCar;
+    public GameObject swapMissileOnCar;
+    public GameObject swapMissileFire;
 	
 	private ParticleSystem smoke;
     private Rigidbody rb;
@@ -71,7 +73,12 @@ public class PowerUp : MonoBehaviour
 					pickup.gameObject.SetActive(false);
 					powerUpToLaunch = Instantiate(smokeBombOnCar, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
 					break;
-			}
+                case "Swap Missile":
+                    isPowerUpReadyToLaunch = true;
+                    pickup.gameObject.SetActive(false);
+                    powerUpToLaunch = Instantiate(swapMissileOnCar, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
+                    break;
+            }
 			Destroy(pickup.gameObject);
 		}
 	}
@@ -134,6 +141,12 @@ public class PowerUp : MonoBehaviour
                 case "SmokeBomb":
                     Destroy(powerUpToLaunch);
                     GameObject smokeBomb = Instantiate(smokeBombParticle, AttachPoint.position - (Vector3.forward * 5), AttachPoint.rotation, AttachPoint.parent) as GameObject;
+                    break;
+                case "Swap Missile":
+                    Destroy(powerUpToLaunch);
+                    GameObject swapMissile = Instantiate(swapMissileFire, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
+                    swapMissile.GetComponent<Rigidbody>().velocity = rb.velocity * missilelag;
+                    swapMissile.GetComponent<SwapMissile>().playerNumber = playerNumber;
                     break;
             }
             isPowerUpReadyToLaunch = false;

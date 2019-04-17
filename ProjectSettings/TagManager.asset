@@ -19,6 +19,7 @@ TagManager:
   - MinimapIcon
   - WheelColliderParent
   - SmokeBomb
+  - Swap Missile
   layers:
   - Default
   - TransparentFX

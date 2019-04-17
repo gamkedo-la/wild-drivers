@@ -1804,6 +1804,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2Bike
       objectReference: {fileID: 0}
+    - target: {fileID: 1501091272437052214, guid: ff02cfbed31749e4eb75be235d701efb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
     - target: {fileID: 6220555585750300789, guid: ff02cfbed31749e4eb75be235d701efb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1900,6 +1905,18 @@ PrefabInstance:
       propertyPath: smokeBombOnCar
       value: 
       objectReference: {fileID: 1830266549, guid: 5fcbd7fcb9769534294111b983fdd25f,
+        type: 3}
+    - target: {fileID: 2970116530452832983, guid: ff02cfbed31749e4eb75be235d701efb,
+        type: 3}
+      propertyPath: swapMissileOnCar
+      value: 
+      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+        type: 3}
+    - target: {fileID: 2970116530452832983, guid: ff02cfbed31749e4eb75be235d701efb,
+        type: 3}
+      propertyPath: swapMissileFire
+      value: 
+      objectReference: {fileID: 128577576, guid: c4f18f744f7dc3845a82a2e4ea7aed89,
         type: 3}
     - target: {fileID: 2348726218651197343, guid: ff02cfbed31749e4eb75be235d701efb,
         type: 3}
@@ -2242,6 +2259,18 @@ PrefabInstance:
       propertyPath: AttachPoint
       value: 
       objectReference: {fileID: 8720971276276529231}
+    - target: {fileID: 9048314380584836047, guid: 79b04b1459d7e014b8e792ab47675c29,
+        type: 3}
+      propertyPath: swapMissileOnCar
+      value: 
+      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+        type: 3}
+    - target: {fileID: 9048314380584836047, guid: 79b04b1459d7e014b8e792ab47675c29,
+        type: 3}
+      propertyPath: swapMissileFire
+      value: 
+      objectReference: {fileID: 128577576, guid: c4f18f744f7dc3845a82a2e4ea7aed89,
+        type: 3}
     - target: {fileID: 7790581718051861853, guid: 79b04b1459d7e014b8e792ab47675c29,
         type: 3}
       propertyPath: startingDriveSpeed
@@ -2695,6 +2724,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1830266549, guid: 5fcbd7fcb9769534294111b983fdd25f,
         type: 3}
+    - target: {fileID: 2447678755847040077, guid: d38f32616d0ce26498d53c4d62038125,
+        type: 3}
+      propertyPath: swapMissileOnCar
+      value: 
+      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+        type: 3}
+    - target: {fileID: 2447678755847040077, guid: d38f32616d0ce26498d53c4d62038125,
+        type: 3}
+      propertyPath: swapMissileFire
+      value: 
+      objectReference: {fileID: 128577576, guid: c4f18f744f7dc3845a82a2e4ea7aed89,
+        type: 3}
     - target: {fileID: 1011151984, guid: d38f32616d0ce26498d53c4d62038125, type: 3}
       propertyPath: driveSpeed
       value: 1000
@@ -3044,6 +3085,18 @@ PrefabInstance:
       propertyPath: AttachPoint
       value: 
       objectReference: {fileID: 7684501539818869423}
+    - target: {fileID: 6945291274142007763, guid: 9514b921289d7cf4ab8b7e58c6bea453,
+        type: 3}
+      propertyPath: swapMissileOnCar
+      value: 
+      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+        type: 3}
+    - target: {fileID: 6945291274142007763, guid: 9514b921289d7cf4ab8b7e58c6bea453,
+        type: 3}
+      propertyPath: swapMissileFire
+      value: 
+      objectReference: {fileID: 128577576, guid: c4f18f744f7dc3845a82a2e4ea7aed89,
+        type: 3}
     - target: {fileID: 1542971731656516383, guid: 9514b921289d7cf4ab8b7e58c6bea453,
         type: 3}
       propertyPath: m_Mass
@@ -3503,6 +3556,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1830266549, guid: 5fcbd7fcb9769534294111b983fdd25f,
         type: 3}
+    - target: {fileID: 228737604891294630, guid: a26ebe3896b916a44ba2c7c1b12000ad,
+        type: 3}
+      propertyPath: swapMissileOnCar
+      value: 
+      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+        type: 3}
+    - target: {fileID: 228737604891294630, guid: a26ebe3896b916a44ba2c7c1b12000ad,
+        type: 3}
+      propertyPath: swapMissileFire
+      value: 
+      objectReference: {fileID: 128577576, guid: c4f18f744f7dc3845a82a2e4ea7aed89,
+        type: 3}
     - target: {fileID: 4503344024500269948, guid: a26ebe3896b916a44ba2c7c1b12000ad,
         type: 3}
       propertyPath: playerCanvas
@@ -3762,6 +3827,16 @@ PrefabInstance:
       propertyPath: smokeBombOnCar
       value: 
       objectReference: {fileID: 1830266549, guid: 5fcbd7fcb9769534294111b983fdd25f,
+        type: 3}
+    - target: {fileID: 926544018, guid: 667248bfb36550044a0d132795f64458, type: 3}
+      propertyPath: swapMissileOnCar
+      value: 
+      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+        type: 3}
+    - target: {fileID: 926544018, guid: 667248bfb36550044a0d132795f64458, type: 3}
+      propertyPath: swapMissileFire
+      value: 
+      objectReference: {fileID: 128577576, guid: c4f18f744f7dc3845a82a2e4ea7aed89,
         type: 3}
     - target: {fileID: 279448265721725217, guid: 667248bfb36550044a0d132795f64458,
         type: 3}
