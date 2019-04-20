@@ -16,12 +16,7 @@ public class PowerUpSpawn : MonoBehaviour
         //GameObject.FindGameObjectWithTag("PowerUp").SetActive(false);
         Debug.Log(powerUps[0]);
 
-        for (int i = 0; i < powerUpSpawnCount; i++)
-        {
-            GameObject currentGameobject = GameObject.Instantiate(powerUps[Random.Range(0, powerUps.Count)], transform);
-            currentGameobject.SetActive(true);
-            currentGameobject.transform.localPosition = new Vector3(i * 3, 0, 0);
-        }
+        FillWithPowerUps();
 
     }
 
@@ -29,5 +24,18 @@ public class PowerUpSpawn : MonoBehaviour
     void Update()
     {
         
+    }
+    public void FillWithPowerUps()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        for (int i = 0; i < powerUpSpawnCount; i++)
+        {
+            GameObject currentGameobject = GameObject.Instantiate(powerUps[Random.Range(0, powerUps.Count)], transform);
+            currentGameobject.SetActive(true);
+            currentGameobject.transform.localPosition = new Vector3(i * 3, 0, 0);
+        }
     }
 }

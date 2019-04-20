@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarNodeHandling : MonoBehaviour    
 {
@@ -12,9 +13,11 @@ public class CarNodeHandling : MonoBehaviour
     [SerializeField]private int currentNode;
     public int currentLap = 1;
     public int maxLap = 3;
+    public GameObject[] powerUps;
     // Start is called before the first frame update
     void Start()
     {
+        powerUps = GameObject.FindGameObjectsWithTag("PowerUpZone");
         if (gameObject.GetComponent<CarDrive>() == null)
         {
             playerNumber = gameObject.GetComponent<BikeDrive>().playerNumber;
@@ -85,11 +88,16 @@ public class CarNodeHandling : MonoBehaviour
                 currentLap += 1;
                 gameObject.GetComponent<PlayerUIHandler>().currentLap = currentLap;
                 gameObject.GetComponent<PlayerUIHandler>().LapUIHandling();//Changes Text in ui
+                foreach (GameObject powerUp in powerUps)
+                {
+                    powerUp.GetComponent<PowerUpSpawn>().FillWithPowerUps();
+                }
             }
             else if (currentLap == maxLap)
             {
                 gameObject.GetComponent<PlayerUIHandler>().currentLap = currentLap;
                 gameObject.GetComponent<PlayerUIHandler>().LapUIHandling();//Changes Text in ui
+                SceneManager.LoadScene("GameOverScene");
                 Debug.Log(gameObject.name + " has won the game");
             }
         }

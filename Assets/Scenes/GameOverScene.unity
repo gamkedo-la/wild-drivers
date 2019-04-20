@@ -1037,3 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf0b2beb73a49040b7c8bd64e26c3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasMenuPanel: {fileID: 1148028852}
+  canvasCarSelectionPanel: {fileID: 0}
+  canvasModeSelectionPanel: {fileID: 0}
+  optionsPanel: {fileID: 0}
