@@ -1910,7 +1910,7 @@ PrefabInstance:
         type: 3}
       propertyPath: swapMissileOnCar
       value: 
-      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+      objectReference: {fileID: 8225048864530755335, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
         type: 3}
     - target: {fileID: 2970116530452832983, guid: ff02cfbed31749e4eb75be235d701efb,
         type: 3}
@@ -2137,7 +2137,7 @@ PrefabInstance:
     - target: {fileID: 6148404609915935429, guid: 79b04b1459d7e014b8e792ab47675c29,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.917374
+      value: -60.21
       objectReference: {fileID: 0}
     - target: {fileID: 6148404609915935429, guid: 79b04b1459d7e014b8e792ab47675c29,
         type: 3}
@@ -2263,7 +2263,7 @@ PrefabInstance:
         type: 3}
       propertyPath: swapMissileOnCar
       value: 
-      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+      objectReference: {fileID: 8225048864530755335, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
         type: 3}
     - target: {fileID: 9048314380584836047, guid: 79b04b1459d7e014b8e792ab47675c29,
         type: 3}
@@ -2728,7 +2728,7 @@ PrefabInstance:
         type: 3}
       propertyPath: swapMissileOnCar
       value: 
-      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+      objectReference: {fileID: 8225048864530755335, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
         type: 3}
     - target: {fileID: 2447678755847040077, guid: d38f32616d0ce26498d53c4d62038125,
         type: 3}
@@ -3089,7 +3089,7 @@ PrefabInstance:
         type: 3}
       propertyPath: swapMissileOnCar
       value: 
-      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+      objectReference: {fileID: 8225048864530755335, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
         type: 3}
     - target: {fileID: 6945291274142007763, guid: 9514b921289d7cf4ab8b7e58c6bea453,
         type: 3}
@@ -3142,6 +3142,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 155077137182080732}
+    - target: {fileID: 4625457099304644024, guid: 9514b921289d7cf4ab8b7e58c6bea453,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b1c5faf0eac40a740a9f68a6e7ce0cd3, type: 2}
     - target: {fileID: 8172000882512796609, guid: 9514b921289d7cf4ab8b7e58c6bea453,
         type: 3}
       propertyPath: m_Radius
@@ -3560,7 +3565,7 @@ PrefabInstance:
         type: 3}
       propertyPath: swapMissileOnCar
       value: 
-      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+      objectReference: {fileID: 8225048864530755335, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
         type: 3}
     - target: {fileID: 228737604891294630, guid: a26ebe3896b916a44ba2c7c1b12000ad,
         type: 3}
@@ -3573,6 +3578,10 @@ PrefabInstance:
       propertyPath: playerCanvas
       value: 
       objectReference: {fileID: 6919968430226283728}
+    - target: {fileID: 593066754, guid: a26ebe3896b916a44ba2c7c1b12000ad, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92c303865a35d1a4d9f5197ede6dd41f, type: 2}
     - target: {fileID: 7758423670400738708, guid: a26ebe3896b916a44ba2c7c1b12000ad,
         type: 3}
       propertyPath: player
@@ -3831,7 +3840,7 @@ PrefabInstance:
     - target: {fileID: 926544018, guid: 667248bfb36550044a0d132795f64458, type: 3}
       propertyPath: swapMissileOnCar
       value: 
-      objectReference: {fileID: 6595396666328182182, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
+      objectReference: {fileID: 8225048864530755335, guid: a0caa6fe43230a64ab67ed4ac6ff2168,
         type: 3}
     - target: {fileID: 926544018, guid: 667248bfb36550044a0d132795f64458, type: 3}
       propertyPath: swapMissileFire
