@@ -93,10 +93,10 @@ public class CarDrive : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartAtSpawn();
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    RestartAtSpawn();
+        //}
         gameObject.GetComponent<Rigidbody>().centerOfMass = centerOfWheelColiiders;
         //Debug.Log(rb.angularVelocity);
         //Debug.Log(gameObject.GetComponent<Rigidbody>().centerOfMass + gameObject.name);

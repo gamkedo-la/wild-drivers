@@ -65,10 +65,10 @@ public class BikeDrive : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartAtSpawn();
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    RestartAtSpawn();
+        //}
 
         setInputForPlayer();
         Accelerate();

@@ -14,6 +14,10 @@ public class PowerUp : MonoBehaviour
     public GameObject smokeBombOnCar;
     public GameObject swapMissileOnCar;
     public GameObject swapMissileFire;
+    public GameObject speedPowerUpOnCar;
+    public GameObject speedPowerUpLight;
+    public GameObject speedPowerUpTemp;//used for tracking the gameobject that is currently set at speed up powerup light.
+
 	
 	private ParticleSystem smoke;
     private Rigidbody rb;
@@ -23,7 +27,7 @@ public class PowerUp : MonoBehaviour
 
     private int playerNumber;
 
-    private float powerUpEffectTimer; // If powerUp does something when it is pushed for number of seconds (for example speed powerUp increases players speed for 5 seconds).
+    [SerializeField] private float powerUpEffectTimer; // If powerUp does something when it is pushed for number of seconds (for example speed powerUp increases players speed for 5 seconds).
     private string currentPowerUpEffect; // Current powerUp Effect (Might be changed to a list later on)
 
     private bool fireInput;
@@ -61,7 +65,9 @@ public class PowerUp : MonoBehaviour
 					break;
 				case "SpeedPowerUp":
 					isPowerUpReadyToLaunch = true;
-					pickup.gameObject.SetActive(false);
+                    powerUpToLaunch = Instantiate(speedPowerUpOnCar, AttachPoint.position, new Quaternion(), AttachPoint.parent) as GameObject;
+                    powerUpToLaunch.gameObject.transform.localRotation = Quaternion.Euler(90, 0, 0);
+                    pickup.gameObject.SetActive(false);
 					break;
 				case "ToonMissile":
 					isPowerUpReadyToLaunch = true;
@@ -106,6 +112,8 @@ public class PowerUp : MonoBehaviour
 
                 case "SpeedPowerUp":
                     //gameObject.GetComponent<CarDrive>().isBoostActive = false;
+                    gameObject.GetComponent<Rigidbody>().velocity /= 1.3f;
+                    Destroy(speedPowerUpTemp);
                     break;
             }
             currentPowerUpEffect = null;
@@ -133,8 +141,10 @@ public class PowerUp : MonoBehaviour
                     break;
                 case "SpeedPowerUp":
                     Destroy(powerUpToLaunch);
-                    //powerUpEffectTimer = 5;
+                    powerUpEffectTimer = 5;
                     gameObject.GetComponent<Rigidbody>().velocity *= 1.3f;
+                    speedPowerUpTemp = Instantiate(speedPowerUpLight, AttachPoint.position, AttachPoint.rotation, AttachPoint.parent) as GameObject;
+                    speedPowerUpTemp.transform.eulerAngles = new Vector3(90, 0, 0);
                     //gameObject.GetComponent<CarDrive>().isBoostActive = true;
                     currentPowerUpEffect = currentPowerUp;
                     break;
